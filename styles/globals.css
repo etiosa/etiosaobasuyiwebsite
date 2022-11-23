@@ -13,6 +13,7 @@ body {
     background: #FDFDFD;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  
+    cursor:none;
 
 }
 
@@ -33,12 +34,19 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+
+.text-opacity {
+opacity:1 !important;
+}
+
+.text-hide{
+opacity:0 ;
+}
+.cursor{
+     
+
+}
+.outter{
+ 
+
 }

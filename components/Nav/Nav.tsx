@@ -12,7 +12,8 @@ function Nav() {
     <MobileNav/>
     <nav className="max-[500px]:hidden w-scren justify-center	flex mb-14">
 
-      <ul style={{  }}
+      <motion.ul
+      
         className="bg-{#DCE0E6]   text-[#78797A]  font-Poppins h-14 md:h-20 mt-10 relative z-40  w-96  md:w-11/12 flex items-center  justify-evenly	 ">
         
           <li>
@@ -35,7 +36,7 @@ function Nav() {
             <Link href="#">Experiments</Link>
           </li>
 
-      </ul>
+      </motion.ul>
     </nav>
     </>
 

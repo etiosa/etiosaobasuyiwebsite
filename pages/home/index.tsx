@@ -1,11 +1,15 @@
 import { NextPage } from "next/types"
+import { motion } from "framer-motion"
 
 const Home: NextPage = () => {
     return (
         <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center'>
         <div>
           <div className="relative">
-            <div style={{boxShadow:"0px 4px 4px rgba(121, 113, 234, 0.41)"}} className='w-24  h-1 bg-[#F5803E] absolute -top-2'></div>
+            <motion.div 
+          
+            
+            style={{boxShadow:"0px 4px 4px rgba(121, 113, 234, 0.41)"}} className='w-24  h-24 bg-[#F5803E] absolute -top-2'></motion.div>
           <h3 className="font-Poppins leading-8	 text-[#0B1727] font-bold text-2xl">A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE</h3>
           </div>
           <div className="w-80 mt-4 md:w-10/12 sm:w-96">
