@@ -14,7 +14,7 @@ function Nav() {
 
       <motion.ul
       
-        className="bg-{#DCE0E6]   text-[#78797A]  font-Poppins h-14 md:h-20 mt-10 relative z-40  w-96  md:w-11/12 flex items-center  justify-evenly	 ">
+        className="bg-{#DCE0E6]   text-[#78797A]  font-Poppins   mt-10 relative z-40  w-96  md:w-11/12 flex items-center  justify-evenly	 ">
         
           <li>
             <Link href="#">Etioa Obasuyi</Link>

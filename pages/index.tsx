@@ -13,12 +13,12 @@ const Hover = {
   image: {
     skewY: 1,
     scale: 1.1,
+    overFlow: "hidden",
+    filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.02)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) 
+    `
 
 
-    filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.01)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) 
-    drop-shadow(0px 88px 88px rgba(32, 37, 42, 0.09))
-     drop-shadow(0px 22px 49px rgba(32, 37, 42, 0.1)) 
-    drop-shadow(0px 0px 0px rgba(32, 37, 42, 0.1))`
+
   },
   transition: {
     type: 'spring',
@@ -34,10 +34,7 @@ const popImage = {
     x: 50,
     y: -50,
 
-    filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.01)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) 
-    drop-shadow(0px 88px 88px rgba(32, 37, 42, 0.09))
-     drop-shadow(0px 22px 49px rgba(32, 37, 42, 0.1)) 
-    drop-shadow(0px 0px 0px rgba(32, 37, 42, 0.1))`,
+
     transition: {
       type: 'spring',
 
@@ -57,7 +54,10 @@ const popImage = {
 
   },
 }
-
+/*  filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.01)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) 
+    drop-shadow(0px 88px 88px rgba(32, 37, 42, 0.09))
+     drop-shadow(0px 22px 49px rgba(32, 37, 42, 0.1)) 
+    drop-shadow(0px 0px 0px rgba(32, 37, 42, 0.1))`*/
 export default function Home() {
 
   useEffect(() => {
@@ -177,6 +177,7 @@ export default function Home() {
                     variants={Hover} whileHover="image"
 
 
+
                   >
 
                     <Image src="/companies/Aisle.png" alt="aurora" width={800} height={100} className="project-image object-cover p-2  relative z-88" quality={100} priority />
@@ -193,9 +194,70 @@ export default function Home() {
                       <motion.div
 
                         variants={popImage} initial={{ opacity: 0 }} className="absolute   -z-10 bottom-0  left-[220px]  top-[5px] w-[200px] h-[200px]">
+                        <Image src="/companies/Aisle.png" alt="aurora" width={200} height={200} className="  object-cover p-2  relative z-88" quality={100} priority />
+
+                      </motion.div>
+
+
+
+                    </div>
+
+                  </motion.div>
+                  <div className='  p-5  max-[900px]:w-[90vw]  lg:w-2/5 xl:w-1/5   left-3  relative  text-[black]'>
+                    <h3 className='text-4xl font-bold text-[#63001C]'>Aisle Rocket</h3>
+                    <h5 className='text-[#792300]'>front End Developer</h5>
+                    <span className="text-[#792300]">2022</span>
+                    <p className='lg:w-full md:w-2/3 leading-7 text-[#772406] mt-5'>Aisle Rocket is a digital marketing agency that harnesses the power of data and actionable insights to deliver breakthrough ideas
+                      and brand experiences that drive emotional connection and measurable impact.</p> </div>
+
+                </div>
+
+
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+
+            <div className="  relative  overflow-hidden">
+
+              <div className=" flex    w-full justify-center items-center mt-5   lg:flex-row    " id="work-container">
+
+
+                <div className='  flex max-[1020px]:flex-col    justify-center   items-center mt-10  ' >
+                  <motion.div className="relative"
+                    variants={Hover} whileHover="image"
+
+
+
+                  >
+
+                    <Image src="/companies/Aisle.png" alt="aurora" width={800} height={100} className="project-image object-cover p-2  relative z-88" quality={100} priority />
+
+                    <div className="relative  max-[500px]:hidden  ">
+                      <motion.div variants={popImage} initial={{ opacity: 0 }} className="absolute   -z-10 bottom-0  left-[250px]  -top-[300px] w-[200px] h-[200px]">
                         <Image src="/companies/Aisle.png" alt="aurora" width={800} height={100} className="  object-cover p-2  relative z-88" quality={100} priority />
 
                       </motion.div>
+                      <motion.div variants={popImage} initial={{ opacity: 0 }} className="absolute   -z-10 bottom-0  -left-[50px]  -top-[260px] w-[200px] h-[200px]">
+                        <Image src="/companies/Aisle.png" alt="aurora" width={800} height={100} className="  object-cover p-2  relative z-88" quality={100} priority />
+
+                      </motion.div>
+                      <motion.div
+
+                        variants={popImage} initial={{ opacity: 0 }} className="absolute   -z-10 bottom-0  left-[220px]  top-[5px] w-[200px] h-[200px]">
+                        <Image src="/companies/Aisle.png" alt="aurora" width={200} height={200} className="  object-cover p-2  relative z-88" quality={100} priority />
+
+                      </motion.div>
+
 
 
                     </div>
@@ -230,6 +292,52 @@ export default function Home() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </section>
+
+          < div
+
+
+            className='cursor fixed overflow-hidden border-2  w-14 h-14 rounded-full text-center  '>
+            <div className="outter  w-5 h-5 relative  top-4 left-4  rounded-full transition-all duration-500	 ">
+            </div>
+            <span className=' outterText relative  font-bold text-lg font-Poppins text-hide'>View</span>
+
+
+
+          </div>
+
+
+
+        </main>
+
+
+      </div>
+
+    </>
+  )
+}
+
+
+/*
+      <
+      
             <div className="  relative mt-48  mb-14 ">
 
               <div className=" flex    w-full justify-center items-center mt-5   lg:flex-row    " id="work-container">
@@ -287,50 +395,6 @@ export default function Home() {
 
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </section>
-
-
-          <div
-
-
-            className='cursor fixed overflow-hidden border-2  w-14 h-14 rounded-full text-center  '>
-            <div className="outter  w-5 h-5 relative  top-4 left-4  rounded-full transition-all duration-500	 ">
-            </div>
-            <span className=' outterText relative  font-bold text-lg font-Poppins text-hide'>View</span>
-
-
-
-          </div>
-
-        </main>
-
-
-      </div>
-
-    </>
-  )
-}
-
-
-/*
-       
-
+      
+   
 */
