@@ -35,9 +35,7 @@ export const projects = [
         buttonColor:"",
         CompanyImage: "/companies/Aisle.png",
         Role: "Front-End Developer",
-        description: `Aisle Rocket is a digital marketing agency that harnesses the power of data and actionable insights to deliver
-             breakthrough ideas and brand experiences that 
-            drive emotional connection and measurable impact.`,
+        description: `Aisle Rocket is a digital marketing agency that harnesses the power of data and actionable insights to deliver breakthrough ideas and brand experiences that drive emotional connection and measurable impact.`,
         backdrop: "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(242, 101, 39, 0.1) 100%)",
 
     },

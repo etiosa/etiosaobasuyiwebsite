@@ -6,28 +6,54 @@ import { motion } from "framer-motion"
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap";
 import { projects } from "../../types/project"
+import AnimatedText from "./AnimatedText";
+import Text from "../../components/Animation/Text";
+import Word from "../../components/Animation/Word";
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 
 const Work: NextPage = () => {
     //box shadow when you over it 
     const [position, setPosition] = useState(0)
+    const [replay, setReplay] = useState(true);
     const [scrollposition, setScrollPosition] = useState(0)
     const paraRef = useRef<HTMLDivElement>(null) as any
+    const placeholderText = [
+        { type: "heading1", text: "Framer Motion" },
+        {
+            type: "heading2",
+            text: "Animating responsive text!"
+        }
+    ];
+
+    const container = {
+        visible: {
+            transition: {
+                staggerChildren: 0.025
+            }
+        }
+    };
+
+
+    const handleReplay = () => {
+        setReplay(!replay);
+        setTimeout(() => {
+            setReplay(true);
+        }, 600);
+    };
+
 
     const nextMove = () => {
-        console.log("next")
-        // setPosition(position+1)
-
         if (position < projects.length - 1) {
             setPosition(position + 1)
-
         }
     }
     const prevMove = () => {
         if (position > 0) {
             setPosition(position - 1)
-
         }
     }
     useEffect(() => {
@@ -35,42 +61,44 @@ const Work: NextPage = () => {
             trigger: "#first",
             start: "top top",
             onEnter: () => {
-
                 setScrollPosition(0)
-
             },
-
         })
         ScrollTrigger.create({
             trigger: "#second",
             start: "top top",
-            //markers:true,
             onEnter: () => {
-
                 setScrollPosition(1)
-
-
             },
-
-
         })
         ScrollTrigger.create({
             trigger: "#third",
             start: "top top",
-            //markers:true,
             onEnter: () => {
-
                 setScrollPosition(2)
-
             },
-
         })
-
     })
 
+    const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
+    const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
+
+    const Hover = {
+        image: {
+          skewY: 1,
+          scale: 1.05,
+      
+          filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.02)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) `
+      
+      
+      
+        },
+      
+      }
 
     return (
         <>
+          
 
             <div className=" flex items-center flex-col max-[1000px]:hidden relative   ">
 
@@ -89,7 +117,7 @@ const Work: NextPage = () => {
                         damping: 20
                     }}
 
-                    className="absolute  h-screen left-0 right-0 " ></motion.div>
+                    className="fixed  h-screen left-0 right-0 " ></motion.div>
 
 
                 {projects.map((data, index) => {
@@ -99,13 +127,13 @@ const Work: NextPage = () => {
                                 position: index !== position ? "absolute" : "relative",
                                 opacity: index !== position ? 0 : 1,
                                 zIndex: index != position ? -1 : 1,
-                               
+
                             }}
                             animate={{
                                 position: index === position ? "relative" : 'absolute',
                                 opacity: index === position ? 1 : 0,
                                 zIndex: index == position ? 1 : -1,
-                              
+
 
                             }}
                             transition={{
@@ -114,31 +142,15 @@ const Work: NextPage = () => {
                             className="grid grid-cols-2  place-items-center  mt-2 w-11/12">
 
                             <div className=" ">
-                                <motion.h2 className="text-4xl font-bold font-Poppins"
-                                    style={{ color: data.titleColor }}
-                                >{data.name}</motion.h2>
-                                <motion.p className="font-Poppins  text-sm font-bold mt-2" style={{ color: data.color }}>{data.Role}</motion.p>
-                                <motion.p className="font-Poppins text-xs mt-2 " style={{ color: data.color }}>{data.year}</motion.p>
+                                <Text index={index} currentporjectposition={position} text={data.name} className="text-4xl font-bold font-Poppins" titlecolor={data.titleColor} />
+                                <Text index={index} currentporjectposition={position} text={data.Role} className="font-Poppins  text-sm font-bold mt-2" titlecolor={data.color} />
+                                <Text index={index} currentporjectposition={position} text={data.year} className="font-Poppins text-xs mt-2" titlecolor={data.color} />
+                             
                                 <div className={`flex font-Poppins w-10/12 mt-2`} style={{ color: data.color }}>
-                                    <motion.p
-                                        initial={{ 
-                                           y:"200%",
-                                           
-                                        
-                                        
-                                        }}
-                                        animate={{ 
-                                        y:0,
-                                            
-                                        }}
-                                        transition={{
-                                            easings: [0.455, 0.03, 0.515, 0.955],
-                                            delay:0.05
-                                        }}
-                                        
-                                        className="text-sm">
-                                        {data.description}
-                                    </motion.p>
+                                
+                                <Word index={index} word={data.description} currentporjectposition={position}/>
+                                    
+                                 
                                 </div>
 
 
@@ -149,24 +161,41 @@ const Work: NextPage = () => {
                                         boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
                                     }}
                                     initial={{
-                                        background: data.color
+                                        background: data.color,
+                                        left: index===position?"-100vw":""
                                     }}
                                     animate={{
-                                        background: data.color
+                                        background: data.color,
+                                        left: index===position?0:"-100vw",
                                     }}
                                     transition={{
-                                        easings: [0.1, 1, 0.1, 1]
+                                       type:"spring",
+                                       damping: 8,
+                                       stiffness: 50
 
                                     }}
 
                                     style={{
 
-                                    }} className="    h-12 w-40 p-3  mt-14"><span className="font-Poppins text-white">View</span></motion.button>
+                                    }} className="   relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">View</span></motion.button>
 
                             </div>
-                            <div className="bg-slate-600">
+                            <motion.div className=""
+                            variants={Hover}
+                                whileHover="image"
+                               initial={{
+                                translateZ:'20rem',
+                                opacity:0,
+                          
+                               }}
+                               animate={index === position?
+                                     { WebkitMaskImage: visibleMask, maskImage: visibleMask, opacity:1}
+                                   : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+                               }
+                               transition={{ duration:index !== position?0.4:0.5, delay: index !== position?0.3:0.2 }}
+                            >
                                 <Image src={data.CompanyImage} alt="aurora" width={800} height={100} className="  object-cover md:object-cover h-auto w-auto " quality={100} priority />
-                            </div>
+                            </motion.div>
                         </motion.div>
                     )
                 })}
@@ -202,22 +231,21 @@ const Work: NextPage = () => {
 
 
 
-
                 {/* nav*/}
-            
+
                 <div className="flex justify-center items-center  w-full mt-20 relative">
                     <motion.div
-                    initial={{
-                        background:projects[position].background,
-                    }}
-                    animate={{
-                        background:projects[position].background
-                    }}
-                    
-                    className="cursor-pointer bg-[red] h-8 w-8 rounded-l-full" onClick={prevMove}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1 left-1">
-                        <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clipRule="evenodd" />
-                    </svg>
+                        initial={{
+                            background: projects[position].background,
+                        }}
+                        animate={{
+                            background: projects[position].background
+                        }}
+
+                        className="cursor-pointer bg-[red] h-8 w-8 rounded-l-full" onClick={prevMove}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1 left-1">
+                            <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clipRule="evenodd" />
+                        </svg>
                     </motion.div>
 
                     <div className="flex  relative ">
@@ -288,24 +316,24 @@ const Work: NextPage = () => {
 
 
                         </div>
-                        
+
                     </div>
-                    <motion.div 
-                      initial={{
-                        background:projects[position].background,
-                    }}
-                    animate={{
-                        background:projects[position].background
-                    }}
-                    
-                    className="cursor-pointer h-8 w-8 rounded-r-full relative left-5" onClick={nextMove}>
+                    <motion.div
+                        initial={{
+                            background: projects[position].background,
+                        }}
+                        animate={{
+                            background: projects[position].background
+                        }}
+
+                        className="cursor-pointer h-8 w-8 rounded-r-full relative left-5" onClick={nextMove}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1 right-0 ">
                             <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clipRule="evenodd" />
                         </svg>
 
-                        </motion.div>
+                    </motion.div>
                 </div>
-                
+
             </div>
 
 

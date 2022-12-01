@@ -5,7 +5,7 @@ function Layout({ children }: any) {
     return (
         <>
             <Nav />
-           
+            <Line />
             <main>{children}
             </main>
         </>
