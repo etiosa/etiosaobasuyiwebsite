@@ -85,20 +85,20 @@ const Work: NextPage = () => {
 
     const Hover = {
         image: {
-          skewY: 1,
-          scale: 1.05,
-      
-          filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.02)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) `
-      
-      
-      
+            skewY: 1,
+            scale: 1.05,
+
+            filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.02)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) `
+
+
+
         },
-      
-      }
+
+    }
 
     return (
         <>
-          
+
 
             <div className=" flex items-center flex-col max-[1000px]:hidden relative   ">
 
@@ -145,12 +145,12 @@ const Work: NextPage = () => {
                                 <Text index={index} currentporjectposition={position} text={data.name} className="text-4xl font-bold font-Poppins" titlecolor={data.titleColor} />
                                 <Text index={index} currentporjectposition={position} text={data.Role} className="font-Poppins  text-sm font-bold mt-2" titlecolor={data.color} />
                                 <Text index={index} currentporjectposition={position} text={data.year} className="font-Poppins text-xs mt-2" titlecolor={data.color} />
-                             
+
                                 <div className={`flex font-Poppins w-10/12 mt-2`} style={{ color: data.color }}>
-                                
-                                <Word index={index} word={data.description} currentporjectposition={position}/>
-                                    
-                                 
+
+                                    <Word index={index} word={data.description} currentporjectposition={position} />
+
+
                                 </div>
 
 
@@ -162,16 +162,16 @@ const Work: NextPage = () => {
                                     }}
                                     initial={{
                                         background: data.color,
-                                        left: index===position?"-100vw":""
+                                        left: index === position ? "-100vw" : 0
                                     }}
                                     animate={{
                                         background: data.color,
-                                        left: index===position?0:"-100vw",
+                                        left: index === position ? 0 : "-100vw",
                                     }}
                                     transition={{
-                                       type:"spring",
-                                       damping: 8,
-                                       stiffness: 50
+                                        type: "spring",
+                                        damping: 8,
+                                        stiffness: 50
 
                                     }}
 
@@ -181,18 +181,18 @@ const Work: NextPage = () => {
 
                             </div>
                             <motion.div className=""
-                            variants={Hover}
+                                variants={Hover}
                                 whileHover="image"
-                               initial={{
-                                translateZ:'20rem',
-                                opacity:0,
-                          
-                               }}
-                               animate={index === position?
-                                     { WebkitMaskImage: visibleMask, maskImage: visibleMask, opacity:1}
-                                   : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
-                               }
-                               transition={{ duration:index !== position?0.4:0.5, delay: index !== position?0.3:0.2 }}
+                                initial={{
+                                    translateZ: '20rem',
+                                    opacity: 0,
+
+                                }}
+                                animate={index === position ?
+                                    { WebkitMaskImage: visibleMask, maskImage: visibleMask, opacity: 1 }
+                                    : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
+                                }
+                                transition={{ duration: index !== position ? 0.4 : 0.5, delay: index !== position ? 0.3 : 0.2 }}
                             >
                                 <Image src={data.CompanyImage} alt="aurora" width={800} height={100} className="  object-cover md:object-cover h-auto w-auto " quality={100} priority />
                             </motion.div>
@@ -235,6 +235,7 @@ const Work: NextPage = () => {
 
                 <div className="flex justify-center items-center  w-full mt-20 relative">
                     <motion.div
+
                         initial={{
                             background: projects[position].background,
                         }}
@@ -275,19 +276,23 @@ const Work: NextPage = () => {
                             {projects.map((src, index) => (
 
                                 <motion.div
+                                    whileHover={{
+                                        scale: 1.1,
+                                    }}
+                                    initial={{
+                                        scale:0
+                                    }}
                                     onClick={() => setPosition(index)}
 
                                     animate={{
+                                        scale:1,
                                         background: index === position ?
                                             src.background : ' conic-gradient(from 192.62deg at 61.19% 50%, rgba(255, 255, 255, 0.5) -120deg, #FFFFFF 114.18deg, rgba(255, 255, 255, 0.5) 240deg, #FFFFFF 474.18deg)',
                                     }}
                                     transition={{
-
                                         type: "spring",
-                                        stiffness: 200,
-                                        damping: 20,
-
-
+                                        damping: 8,
+                                        stiffness: 50
                                     }}
                                     key={src.url} className=" w-20 h-20 rounded-full  ml-7 m-auto text-center">
                                     <Image src={src.url} alt="auor" width={50} height={50} className="aspect-square m-auto mt-4" />
