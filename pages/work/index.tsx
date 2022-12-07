@@ -9,6 +9,7 @@ import { projects } from "../../types/project"
 import AnimatedText from "./AnimatedText";
 import Text from "../../components/Animation/Text";
 import Word from "../../components/Animation/Word";
+import { useRouter } from "next/router";
 
 
 
@@ -17,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Work: NextPage = () => {
     //box shadow when you over it 
+    const router =useRouter()
     const [position, setPosition] = useState(0)
     const [replay, setReplay] = useState(true);
     const [scrollposition, setScrollPosition] = useState(0)
@@ -30,11 +32,33 @@ const Work: NextPage = () => {
     ];
 
     const container = {
-        visible: {
-            transition: {
-                staggerChildren: 0.025
+        
+        initial:{
+            opacity: 0,
+            clipPath: `circle(1.1% at 49% 100%)`,
+            transition:{
+                duration:2,
+                staggerChildren: 0.05
             }
-        }
+        },
+        animate:{
+            opacity: 1,
+            clipPath: `circle(600% at 49% 400%)`,
+            transition:{
+                duration:2,
+                staggerChildren: 0.05
+            }
+            
+        },
+        exit:{
+            opacity: 0,
+            clipPath: `circle(1.1% at 49% 100%)`,
+            transition:{
+                duration:1,
+                staggerChildren: 0.05
+            }
+        },
+       
     };
 
 
@@ -97,7 +121,14 @@ const Work: NextPage = () => {
     }
 
     return (
-        <>
+        <motion.div 
+        style={{background:"linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)", height:'100vh'}}
+        key={router.route}
+        variants={container}
+        initial="initial:"
+        animate="animate"
+        exit="exit"
+        >
 
 
             <div className=" flex items-center flex-col max-[1000px]:hidden relative   ">
@@ -237,9 +268,11 @@ const Work: NextPage = () => {
                     <motion.div
 
                         initial={{
+                            opacity:0,
                             background: projects[position].background,
                         }}
                         animate={{
+                            opacity:1,
                             background: projects[position].background
                         }}
 
@@ -325,9 +358,11 @@ const Work: NextPage = () => {
                     </div>
                     <motion.div
                         initial={{
+                            opacity:0,
                             background: projects[position].background,
                         }}
                         animate={{
+                            opacity:1,
                             background: projects[position].background
                         }}
 
@@ -510,7 +545,7 @@ const Work: NextPage = () => {
 
 
             </div>
-        </>
+        </motion.div>
     )
 }
 export default Work
