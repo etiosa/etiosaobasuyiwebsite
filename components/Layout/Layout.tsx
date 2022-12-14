@@ -1,12 +1,14 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import Line from "../line/line"
 import Nav from "../Nav/Nav"
 function Layout({ children }: any) {
 
+    const cursors = useRef(null);
+
     //curosor here
     useEffect(() => {
-        console.log("useffetc called agai")
         const cursor = (event: any) => {
+            console.log()
             if (mouseCurouser) {
                 mouseCurouser.style.left = event.clientX + "px"
                 mouseCurouser.style.top = event.clientY + "px";
@@ -17,9 +19,9 @@ function Layout({ children }: any) {
 
                 ProjectImage.forEach(image => {
                     image.addEventListener('mouseover', () => {
-                        outter?.classList.add("scale-[4]", "opacity-1", "bg-[#F26527]");
+                        // outter?.classList.add("scale-[4]", "opacity-1", "bg-[#F26527]");
 
-                        outterText?.classList.add('text-opacity');
+                        // outterText?.classList.add('text-opacity');
                     })
 
                 })
@@ -34,7 +36,7 @@ function Layout({ children }: any) {
             }
 
         }
-        const mouseCurouser = document.querySelector('.cursor');
+        const mouseCurouser = document.querySelector<HTMLElement>('.cursor');
         //project-image
         const ProjectImage = document.querySelectorAll('.project-image');
         const outter = document.querySelector('.outter')
@@ -53,17 +55,7 @@ function Layout({ children }: any) {
             <Line />
             <main>
                 {children}
-                <div
-
-
-                    className='cursor fixed overflow-hidden border-2  w-14 h-14 rounded-full text-center  '>
-                    <div className="outter  w-5 h-5 relative  top-4 left-4  rounded-full transition-all duration-500	 ">
-                    </div>
-                    <span className=' outterText relative  font-bold text-lg font-Poppins text-hide'>View</span>
-
-
-
-                </div>
+                
             </main>
         </>
 
@@ -72,4 +64,18 @@ function Layout({ children }: any) {
 
 
 export default Layout
-/*  <Line />*/
+/*  <Line />
+
+<div
+
+
+                    className='cursor fixed overflow-hidden border-2  w-14 h-14 rounded-full text-center  '>
+                    <div ref={cursors} className="outter  w-5 h-5 relative  top-4 left-4  rounded-full transition-all duration-500	 ">
+                    </div>
+                    <span className=' outterText relative  font-bold text-lg font-Poppins text-hide'>View</span>
+
+
+
+                </div>
+
+*/

@@ -38,7 +38,7 @@ const Contact: NextPage = () => {
                                 placeholder="Email"
                                 className={`peer  p-2 bg-transparent placeholder-transparent  focus:outline-none  border-t-0 border-l-0 border-r-0  border border-[#576E92]`} />
                             <label htmlFor='Email'
-                                className=" transition-all absolute left-2   text-sm text-gray opacity-50 -top-3 peer-focus:-top-3.5 peer-focus:text-xs
+                                className="transition-all absolute left-2   text-sm text-gray opacity-50 -top-3 peer-focus:-top-3.5 peer-focus:text-xs
                                      peer-placeholder-shown:top-2   peer-placeholder-shown:text-red">Email</label>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ const Contact: NextPage = () => {
                     <button style={{
                         boxShadow: "0px 58px 23px rgba(121, 113, 234, 0.01), 0px 32px 19px rgba(121, 113, 234, 0.05), 0px 14px 14px rgba(121, 113, 234, 0.09), 0px 4px 8px rgba(121, 113, 234, 0.1), 0px 0px 0px rgba(121, 113, 234, 0.1)"
                     }} className="  bg-[#576E92] h-14 w-52 mb-24 mt-5 "><span className="font-Poppins text-white">
-                        Submit</span></button>
+                            Submit</span></button>
 
 
                 </form>

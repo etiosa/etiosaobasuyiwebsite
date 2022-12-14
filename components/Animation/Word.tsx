@@ -1,4 +1,4 @@
-import { motion, Variants, HTMLMotionProps } from "framer-motion";
+import { motion, Variants, } from "framer-motion";
 
 interface IWordProps {
     word: string,
@@ -54,6 +54,7 @@ const Word = ({ word,
     const words = word.split(" ");
     return (
         <motion.div
+        className={props.className}
             variants={container}
             initial={props.index === props.currentporjectposition? "hidden" : ""}
             animate={props.index === props.currentporjectposition ? "visible" : "hidden"}
@@ -64,8 +65,6 @@ const Word = ({ word,
             {words.map((letter, index) => {
                 return (
                     <motion.p style={{ display: "inline-block", marginRight: "0.2rem" }} variants={child}
-
-
                         key={letter + '--' + index}>
                         {letter}
                     </motion.p>

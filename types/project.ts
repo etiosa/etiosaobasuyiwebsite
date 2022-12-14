@@ -8,6 +8,8 @@ export const projects = [
         description: "MorJoy Candles is a small business based in Texas. MorJoy Candles  are scented and handmade.",
         year: "2022",
         titleColor: "#953004",
+        hoverImages:["/companies/morjoy/MorJoy_front.png","/companies/morjoy/MorJoy_home.png",
+        ],
         
         backdrop: ' linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 177, 145, 0.1) 100%)',
         background: 'conic-gradient(from 197.57deg at 60% 50%, rgba(255, 255, 255, 0.78) -92.78deg, rgba(216, 177, 146, 0.2) 116.53deg, rgba(255, 255, 255, 0.78) 267.22deg, rgba(216, 177, 146, 0.2) 476.53deg)'
@@ -22,6 +24,9 @@ export const projects = [
         description: "Aurox is a free all in one crypto trading terminal powered by the Aurox Token that make easy for anyone to trade crypto.",
         titleColor: "#060D1C",
         buttonColor:"",
+        hoverImages:["/companies/aurox/Aurox_home.png", "/companies/aurox/Aruox_feature.png", 
+       ],
+
         backdrop: "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(62, 81, 119, 0.1) 100%)",
         background: " conic-gradient(from 12.23deg at 54.33% 52.5%, #FFFFFF -142.11deg, rgba(40, 58, 94, 0.2) 120.95deg, #FFFFFF 217.89deg, rgba(40, 58, 94, 0.2) 480.95deg)"
     },
@@ -33,6 +38,9 @@ export const projects = [
         year: "2022",
         titleColor: "#A7123C",
         buttonColor:"",
+        hoverImages:["/companies/aisle/AISLE_HOME.png", "/companies/aisle/Aisel_market.png" ,
+        ],
+
         CompanyImage: "/companies/Aisle.png",
         Role: "Front-End Developer",
         description: `Aisle Rocket is a digital marketing agency that harnesses the power of data and actionable insights to deliver breakthrough ideas and brand experiences that drive emotional connection and measurable impact.`,
@@ -47,6 +55,8 @@ export const projects = [
         name: "Advantix",
         year: "2022",
         buttonColor:"",
+        hoverImages:[],
+
         titleColor: "#2A4A63",
         CompanyImage: "/companies/Aisle.png",
         Role: "Front-End Developer",
@@ -62,6 +72,8 @@ export const projects = [
         name: "Onye",
         year: "2021",
         buttonColor:"",
+        hoverImages:[],
+
         titleColor: "#23245A",
         CompanyImage: "/companies/Aisle.png",
         Role: "Front-End Developer||UI/UX ",

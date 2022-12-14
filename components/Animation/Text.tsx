@@ -9,6 +9,7 @@ interface Props extends HTMLMotionProps<"div"> {
   titlecolor?:string;
   descriptionColor?:string;
   index?:Number,
+  Textstyle?:{},
   currentporjectposition?:Number
 }
 
@@ -51,11 +52,11 @@ const Text: FC<Props> = ({
     }
   };
 
-
+console.log({...props.Textstyle} )
 
   return (
     <motion.h1
-      style={{ display: "flex", overflow: "hidden", color:props.titlecolor }}
+      style={{ display: "flex", overflow: "hidden", color:props.titlecolor}}
       variants={container}
       initial=  {props.index ===props.currentporjectposition?"hidden":""}
       animate={props.index === props.currentporjectposition?"visible":"hidden"}

@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap";
 import { projects } from "../../types/project"
-import AnimatedText from "./AnimatedText";
 import Text from "../../components/Animation/Text";
 import Word from "../../components/Animation/Word";
 import { useRouter } from "next/router";
@@ -18,56 +17,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Work: NextPage = () => {
     //box shadow when you over it 
-    const router =useRouter()
     const [position, setPosition] = useState(0)
-    const [replay, setReplay] = useState(true);
     const [scrollposition, setScrollPosition] = useState(0)
     const paraRef = useRef<HTMLDivElement>(null) as any
-    const placeholderText = [
-        { type: "heading1", text: "Framer Motion" },
-        {
-            type: "heading2",
-            text: "Animating responsive text!"
-        }
-    ];
-
-    const container = {
-        
-        initial:{
-            opacity: 0,
-            clipPath: `circle(1.1% at 49% 100%)`,
-            transition:{
-                duration:2,
-                staggerChildren: 0.05
-            }
-        },
-        animate:{
-            opacity: 1,
-            clipPath: `circle(600% at 49% 400%)`,
-            transition:{
-                duration:2,
-                staggerChildren: 0.05
-            }
-            
-        },
-        exit:{
-            opacity: 0,
-            clipPath: `circle(1.1% at 49% 100%)`,
-            transition:{
-                duration:1,
-                staggerChildren: 0.05
-            }
-        },
-       
-    };
 
 
-    const handleReplay = () => {
-        setReplay(!replay);
-        setTimeout(() => {
-            setReplay(true);
-        }, 600);
-    };
+
+
 
 
     const nextMove = () => {
@@ -111,29 +67,14 @@ const Work: NextPage = () => {
         image: {
             skewY: 1,
             scale: 1.05,
-
-            filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.02)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05)) `
-
-
-
+            filter: `drop-shadow(0px 354px 142px rgba(32, 37, 42, 0.02)) drop-shadow(0px 199px 119px rgba(32, 37, 42, 0.05))`
         },
-
     }
 
     return (
-        <motion.div 
-        style={{background:"linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)", height:'100vh'}}
-        key={router.route}
-        variants={container}
-        initial="initial:"
-        animate="animate"
-        exit="exit"
-        >
-
-
-            <div className=" flex items-center flex-col max-[1000px]:hidden relative   ">
-
-
+        <motion.div
+          >
+            <div className=" flex items-center flex-col max-[1000px]:hidden relative ">
                 <motion.div
                     initial={{
                         background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -143,48 +84,38 @@ const Work: NextPage = () => {
                     }}
                     transition={{
                         type: "spring",
-
                         stiffness: 200,
                         damping: 20
                     }}
 
                     className="fixed  h-screen left-0 right-0 " ></motion.div>
-
-
                 {projects.map((data, index) => {
                     return (
                         <motion.div
+                            key={data.name + '__' + data.url}
                             initial={{
                                 position: index !== position ? "absolute" : "relative",
                                 opacity: index !== position ? 0 : 1,
                                 zIndex: index != position ? -1 : 1,
-
                             }}
                             animate={{
                                 position: index === position ? "relative" : 'absolute',
                                 opacity: index === position ? 1 : 0,
                                 zIndex: index == position ? 1 : -1,
-
-
                             }}
                             transition={{
                                 easings: [0.1, 1, 0.1, 1]
                             }}
                             className="grid grid-cols-2  place-items-center  mt-2 w-11/12">
 
-                            <div className=" ">
+                            <div>
                                 <Text index={index} currentporjectposition={position} text={data.name} className="text-4xl font-bold font-Poppins" titlecolor={data.titleColor} />
                                 <Text index={index} currentporjectposition={position} text={data.Role} className="font-Poppins  text-sm font-bold mt-2" titlecolor={data.color} />
                                 <Text index={index} currentporjectposition={position} text={data.year} className="font-Poppins text-xs mt-2" titlecolor={data.color} />
 
-                                <div className={`flex font-Poppins w-10/12 mt-2`} style={{ color: data.color }}>
-
+                                <motion.div className={`flex font-Poppins w-10/12 mt-2`} style={{ color: data.color }}>
                                     <Word index={index} word={data.description} currentporjectposition={position} />
-
-
-                                </div>
-
-
+                                </motion.div>
                                 <motion.button
                                     whileHover={{
                                         skewY: 3,
@@ -203,13 +134,8 @@ const Work: NextPage = () => {
                                         type: "spring",
                                         damping: 8,
                                         stiffness: 50
-
                                     }}
-
-                                    style={{
-
-                                    }} className="   relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">View</span></motion.button>
-
+                                    className="relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">View</span></motion.button>
                             </div>
                             <motion.div className=""
                                 variants={Hover}
@@ -268,11 +194,11 @@ const Work: NextPage = () => {
                     <motion.div
 
                         initial={{
-                            opacity:0,
+                            opacity: 0,
                             background: projects[position].background,
                         }}
                         animate={{
-                            opacity:1,
+                            opacity: 1,
                             background: projects[position].background
                         }}
 
@@ -313,12 +239,12 @@ const Work: NextPage = () => {
                                         scale: 1.1,
                                     }}
                                     initial={{
-                                        scale:0
+                                        scale: 0
                                     }}
                                     onClick={() => setPosition(index)}
 
                                     animate={{
-                                        scale:1,
+                                        scale: 1,
                                         background: index === position ?
                                             src.background : ' conic-gradient(from 192.62deg at 61.19% 50%, rgba(255, 255, 255, 0.5) -120deg, #FFFFFF 114.18deg, rgba(255, 255, 255, 0.5) 240deg, #FFFFFF 474.18deg)',
                                     }}
@@ -358,11 +284,11 @@ const Work: NextPage = () => {
                     </div>
                     <motion.div
                         initial={{
-                            opacity:0,
+                            opacity: 0,
                             background: projects[position].background,
                         }}
                         animate={{
-                            opacity:1,
+                            opacity: 1,
                             background: projects[position].background
                         }}
 

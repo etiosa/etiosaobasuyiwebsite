@@ -2,6 +2,7 @@ import { NextPage } from "next/types"
 import { motion } from "framer-motion"
 
 const Home: NextPage = () => {
+  console.log("Home")
     return (
         <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center'>
         <div>
