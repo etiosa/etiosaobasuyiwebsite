@@ -6,39 +6,44 @@ import Text from '../components/Animation/Text';
 import { projects } from "../types/project"
 import ProjectImage from '../components/ProjectImage/ProjectImage';
 import { useRouter } from "next/router";
+import Image from 'next/image'
+import { Logo } from "../types/project"
 
 export default function Home() {
+  const router = useRouter()
 
   return (
     <motion.div
+     
 
     >
       <motion.div
         initial={{
           opacity: 0,
-          top: "20rem",
+          //top: "20rem",
+          pathLength: 0
 
         }}
         animate={{
           opacity: 1,
-          top: 0,
+          // top: 0,
+          pathLength: 1
 
         }}
         transition={{
           type: "spring",
           damping: 15,
           stiffness: 300,
-          duration: 1
+          duration: 2
         }}
 
 
         className="absolute w-[100wv] h-[100vh] left-0 right-0  " style={{
-
           backgroundImage: "url(../companies/vector.svg)",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
           backgroundPosition: "top 1% center",
-          backgroundSize: "90%"
+          opacity: 0.5
         }}>
 
 
@@ -56,7 +61,7 @@ export default function Home() {
           <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center relative mt-52'>
             <div>
               <div className="relative">
-                <Word className="font-Poppins leading-8	 text-[#0B1727] font-bold text-2xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
+                <Word className="font-Poppins leading-[3.5rem]	 text-[#0B1727] font-bold text-4xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
               </div>
               <div className=" mt-4 md:w-10/12 sm:w-96 ">
                 <Text duration={0.02} className="font-Poppins leading-5 text-[#2E435F] text-sm" text='I will help you design a Minimalistic, and intuitive user interface that  ' />
@@ -64,8 +69,11 @@ export default function Home() {
               </div>
 
             </div>
-            <div className="flex flex-col items-center md:flex-row md:mt-32">
+            <div className="flex flex-col items-start md:flex-row md:mt-32">
               <motion.button
+              onClick={()=>{
+                router.push("/work")
+              }}
                 initial={{
                   opacity: 0
                 }}
@@ -74,32 +82,42 @@ export default function Home() {
                 }}
                 transition={{
                   type: "spring",
-                  damping: 15,
-                  stiffness: 300,
-                  duration: 1
-                }}
+                  duration: 0.5
+              }}
                 style={{
                   boxShadow: "0px 58px 23px rgba(121, 113, 234, 0.01), 0px 32px 19px rgba(121, 113, 234, 0.05), 0px 14px 14px rgba(121, 113, 234, 0.09), 0px 4px 8px rgba(121, 113, 234, 0.1), 0px 0px 0px rgba(121, 113, 234, 0.1)",
                 }}
-                whileHover={{ scale: 1.1 }}
-                className="bg-[#576E92] h-14 w-52 mb-24 mt-20 md:mt-0 md:mb-0 md:mr-32"><span className="font-Poppins text-white">View My Work</span></motion.button>
+                whileHover={{
+                  skewY: 3,
+                  scale: 1.1,
+                  boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
+                }} className="bg-[#F5803E] h-14 w-52 mb-24 mt-20 md:mt-0 md:mb-0 md:mr-32"><span className="font-Poppins text-white">View My Work</span></motion.button>
               <motion.button
+              onClick={()=>{
+                router.push("/contact")
+              }}
                 initial={{
                   opacity: 0
                 }}
+                transition={{
+                  type: "spring",
+                  duration: 0.5
+              }}
                 animate={{
                   opacity: 1
                 }}
                 whileHover={{
-                  scale: 1.1
+                  skewY: 3,
+                  scale: 1.1,
+                  boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
                 }}
 
                 className="bg-[#DCE0E6] h-14 w-52" style={{ boxShadow: '0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)' }}>
-                <span className='text-[#0B1727] font-Poppins'>Contact Me</span></motion.button>
+                <span className='text-[#0B1727] font-Poppins'>Let's Talk</span></motion.button>
             </div>
           </div>
-          <div className="w-8/12 md:w-10/12 lg:w-7/12 xl:w-5/12 sm:w-6/12 mt-48">
-            <Word className="font-Poppins text-xl max-[500px]:text-xl text-[#2E435F] leading-12" word={`Passionate about Technology and obess with learning. I love working at the intersection of creativity and User friendly interfaces`} />
+          <div className="w-8/12 md:w-10/12 lg:w-7/12 xl:w-7/12 sm:w-6/12 mt-48 flex flex-col justify-center items-center">
+            <Word className="font-Poppins text-lg max-[500px]:text-xl text-[#2E435F] leading-12" word={`Passionate about Technology and obess with learning. I love working at the intersection of creativity and User friendly interfaces`} />
             <motion.button
               initial={{
                 opacity: 0
@@ -141,23 +159,97 @@ export default function Home() {
 
           <section className="w-full h-full   justify-center items-center " >
             <div className="relative ">
-              {projects.slice(0,3).map((project, index) => {
-                return (
-                 
-                    <ProjectImage key={project.name + "__" + project.year} ProjectName={project.name}
-                      index={index}
-                      hoverImage={project.hoverImages}
-                      buttonColor={project.color}
-                      reverse={index % 2 === 0 ? true : false}
-                      titleColor={project.titleColor} Role={project.Role} Year={project.year} Description={project.description}
-                      CompanyImage={project.CompanyImage}
-                      color={project.color} />
-                  )
+              {projects.slice(0, 3).map((project, index) => {
+                return (<ProjectImage key={project.name + "__" + project.year} ProjectName={project.name}
+                  index={index}
+                  hoverImage={project.hoverImages}
+                  buttonColor={project.buttonColor}
+                  reverse={index % 2 === 0 ? true : false}
+                  titleColor={project.titleColor} Role={project.Role} Year={project.year} Description={project.description}
+                  CompanyImage={project.CompanyImage}
+                  color={project.color} />
+                )
               })}
             </div>
           </section>
-          <motion.div className="text-[#2E435F] font-bold  relative mt-32">
-            <motion.h1 className="text-3xl lg:text-5xl mb-5 relative"
+          <motion.button
+            whileHover={{
+              skewY: 3,
+              scale: 1.1,
+              boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
+            }}
+            whileInView={{
+              opacity: 1
+            }}
+            initial={{
+              opacity: 0,
+              left: "-100vw"
+            }}
+            animate={{
+              left: 0,
+            }}
+            transition={{
+              type: "spring",
+              duration: 0.5
+            }}
+            className="relative  h-14 w-52 p-3  bg-[#F26527] mt-14 mb-24"><span className="font-Poppins  text-white uppercase">View More</span></motion.button>
+
+          <motion.div className='flex flex-col items-center mb-14'
+
+            transition={{
+              staggerChildren: 0.2
+            }}
+          >
+            <motion.h1
+              whileHover={{
+                scale: 1.1
+              }}
+
+              className="text-3xl lg:text-4xl mb-5 relative text-[#2E435F] font-bold mt-14 ">Happy clients</motion.h1>
+
+            <motion.div className='grid lg:grid-cols-6 lg:gap-14 gap-2 p-5 grid-cols-3   place-items-center place-content-center'>
+
+              {Logo.map((logo, index) => {
+
+                return (
+                  <motion.div
+                    className='relative'
+                    initial={{
+                      opacity: 0,
+                      top: "15rem"
+                    }}
+
+                    whileInView={{
+                      opacity: 1,
+                      top: 0
+                    }}
+
+                    whileHover={{
+                      scale: 1.1
+                    }}
+
+                    transition={{
+                      type: 'spring',
+                      damping: 12,
+                      stiffness: 200,
+                      duration: 1,
+
+                    }}
+                    key={index + "__" + logo.companyName}>
+                    <Image width={150} height={150} src={logo.logo} alt={logo.companyName}  loading="lazy"  />
+
+                  </motion.div>)
+              })}
+
+
+
+            </motion.div>
+
+          </motion.div>
+
+
+          <motion.div className="text-[#2E435F] font-bold  relative mt-14">
+            <motion.h1 className="text-3xl lg:text-4xl mb-5 relative uppercase"
               initial={{
                 opacity: 0,
 
@@ -198,7 +290,7 @@ export default function Home() {
               style={{
                 background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(242, 101, 39, 0.25) 100%)"
               }}
-              className=" rounded-full w-52  h-52 m-auto relative mt-10 cursor-pointer">
+              className=" rounded-full w-52  h-52 m-auto relative mt-10 cursor-pointer mb-10">
 
               <motion.h1
                 initial={{

@@ -11,17 +11,17 @@ export default function App({ Component, pageProps }: AppProps) {
   const container = {
     initial: {
       opacity: 0,
-      clipPath: `circle(1.1% at 49% 100%)`,
+      clipPath: "circle(1.1% at 49% 100%)",
       transition: {
-        duration: 2,
+        duration: 0.2,
         staggerChildren: 0.05
       }
     },
     animate: {
       opacity: 1,
-      clipPath: `circle(2000% at 49% 100%)`,
+      clipPath: `circle(200% at 49% 100%)`,
       transition: {
-        duration: 2,
+        duration: 0.2,
         staggerChildren: 0.05
       }
 
@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
       opacity: 0,
       clipPath: `circle(1.1% at 49% 100%)`,
       transition: {
-        duration: 1,
+        duration: 0.2,
         staggerChildren: 0.05
       }
     },
@@ -39,22 +39,18 @@ export default function App({ Component, pageProps }: AppProps) {
 
   
   return( 
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
   <Layout>
-    <motion.div 
-    style={{ background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)", height: '100vh' }}
-    key={router.route}
-    variants={container}
-    initial="initial:"
-    animate="animate"
-    exit="exit"
     
-    >
+   
+    
+  
   <Component {...pageProps} />
-  </motion.div>
+ 
    </Layout>
   
   </AnimatePresence>
   )
 }
 
+/* linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)*/

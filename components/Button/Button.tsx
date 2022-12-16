@@ -1,35 +1,41 @@
 import { motion } from "framer-motion"
-type Data={
-    color:string,
-    link:string
-}
 
-interface IButton{
-    data:Data
+interface IButtonProps {
+    color: string,
+    link?: string,
+    className?:string
+    Title:string,
+    TitleClassName?:string,
+    onClick?:Function,
+    backgroundColor?:string
 }
-export const Button = ({data}:IButton) => {
+export const Button = (props:IButtonProps) => {
 
 
     return (
         <motion.button
+        style={{
+            backgroundColor:props.backgroundColor
+        }}
             whileHover={{
                 skewY: 3,
                 scale: 1.1,
-                boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
+                boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
+            }}
+            whileInView={{
+                opacity: 1
             }}
             initial={{
-                background: data.color
+                opacity: 0,
+                left: "-100vw"
             }}
             animate={{
-                background: data.color
+                left: 0,
             }}
             transition={{
-                easings: [0.1, 1, 0.1, 1]
-
+                type: "spring",
+                duration: 0.5
             }}
-
-            style={{
-
-            }} className="    h-12 w-32 p-3 "><span className="font-Poppins text-white">View</span></motion.button>
+            className={` ${props.className} relative  h-14 w-52 p-3  mt-14 mb-24`}><span className="font-Poppins  text-white uppercase">{props.Title}</span></motion.button>
     )
 }

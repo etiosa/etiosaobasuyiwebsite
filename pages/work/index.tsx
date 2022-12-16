@@ -1,6 +1,5 @@
 import { NextPage } from "next/types"
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState, useRef } from "react"
@@ -9,6 +8,7 @@ import { projects } from "../../types/project"
 import Text from "../../components/Animation/Text";
 import Word from "../../components/Animation/Word";
 import { useRouter } from "next/router";
+import ProjectImage from "../../components/ProjectImage/ProjectImage";
 
 
 
@@ -16,48 +16,74 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const Work: NextPage = () => {
-    //box shadow when you over it 
     const [position, setPosition] = useState(0)
     const [scrollposition, setScrollPosition] = useState(0)
-    const paraRef = useRef<HTMLDivElement>(null) as any
+    const [distance, setDistance] = useState(0)
 
 
 
 
 
+    const setActivePosition = (index: number) => {
+        const offset = 150;
+        let moveDistance = index * offset;
+        setPosition(() => {
+            return index;
+        })
+        setDistance(() => {
+            return moveDistance;
+        })
+        if (index === 0) {
+            setDistance(() => {
+                return 10;
+            })
+        }
+
+    }
 
     const nextMove = () => {
         if (position < projects.length - 1) {
-            setPosition(position + 1)
+            const offset = 155;
+            let moveDistance = position * offset + 155;
+            setPosition((prev) => {
+                return position + 1;
+            })
+            setDistance(() => {
+                return moveDistance;
+            })
+
+        }
+        if (position === 0) {
+            setDistance(() => {
+                return 140;
+            })
         }
     }
     const prevMove = () => {
         if (position > 0) {
-            setPosition(position - 1)
+            const offset = 155;
+            let moveDistance = position * offset - 155;
+            setPosition((prev) => {
+                console.log(prev)
+                return position - 1;
+            })
+            setDistance(() => {
+                return moveDistance;
+            })
+
         }
     }
     useEffect(() => {
-        ScrollTrigger.create({
-            trigger: "#first",
-            start: "top top",
-            onEnter: () => {
-                setScrollPosition(0)
-            },
-        })
-        ScrollTrigger.create({
-            trigger: "#second",
-            start: "top top",
-            onEnter: () => {
-                setScrollPosition(1)
-            },
-        })
-        ScrollTrigger.create({
-            trigger: "#third",
-            start: "top top",
-            onEnter: () => {
-                setScrollPosition(2)
-            },
-        })
+        projects.forEach((project, index) => {
+            ScrollTrigger.create({
+                trigger: `#${project.id}`,
+                start: "top top",
+                onEnter: () => {
+                    setScrollPosition(index)
+                },
+            })
+        }, [])
+
     })
 
     const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
@@ -73,15 +99,13 @@ const Work: NextPage = () => {
 
     return (
         <motion.div
-          >
-            <div className=" flex items-center flex-col max-[1000px]:hidden relative ">
+        >
+            <div className=" flex items-center flex-col max-[1024px]:hidden relative ">
                 <motion.div
                     initial={{
                         background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)",
                     }}
-                    animate={{
-                        background: projects[position].backdrop
-                    }}
+                    animate={{ background: projects[position].backdrop }}
                     transition={{
                         type: "spring",
                         stiffness: 200,
@@ -92,7 +116,7 @@ const Work: NextPage = () => {
                 {projects.map((data, index) => {
                     return (
                         <motion.div
-                            key={data.name + '__' + data.url}
+                            key={data.name + '__' + data.name + "___" + data.Role}
                             initial={{
                                 position: index !== position ? "absolute" : "relative",
                                 opacity: index !== position ? 0 : 1,
@@ -117,31 +141,36 @@ const Work: NextPage = () => {
                                     <Word index={index} word={data.description} currentporjectposition={position} />
                                 </motion.div>
                                 <motion.button
+
+                                    style={{ cursor: data.comingSoon ? "not-allowed" : "pointer", }}
+                                    disabled={data.comingSoon}
                                     whileHover={{
-                                        skewY: 3,
-                                        scale: 1.1,
-                                        boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
+                                        skewY: data.comingSoon ? 0 : 3,
+                                        scale: data.comingSoon ? 1 : 1.1,
+                                        boxShadow: data.comingSoon ?
+                                            ""
+                                            : "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
                                     }}
                                     initial={{
-                                        background: data.color,
+                                        background: data.buttonColor,
                                         left: index === position ? "-100vw" : 0
                                     }}
                                     animate={{
-                                        background: data.color,
+                                        background: data.buttonColor,
                                         left: index === position ? 0 : "-100vw",
                                     }}
                                     transition={{
                                         type: "spring",
-                                        damping: 8,
-                                        stiffness: 50
+                                        duration: 0.5
                                     }}
-                                    className="relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">View</span></motion.button>
+                                    className="relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">{data.comingSoon ? "Coming Soon" : "View"}</span></motion.button>
                             </div>
-                            <motion.div className=""
+                            <motion.div
+                                key={index + "___" + data.comingSoon + "___" + data.name}
+                                className=""
                                 variants={Hover}
-                                whileHover="image"
+
                                 initial={{
-                                    translateZ: '20rem',
                                     opacity: 0,
 
                                 }}
@@ -151,48 +180,23 @@ const Work: NextPage = () => {
                                 }
                                 transition={{ duration: index !== position ? 0.4 : 0.5, delay: index !== position ? 0.3 : 0.2 }}
                             >
-                                <Image src={data.CompanyImage} alt="aurora" width={800} height={100} className="  object-cover md:object-cover h-auto w-auto " quality={100} priority />
+
+                                <Image src={data.comingSoon ? "/companies/coming.png" : data.CompanyImage} alt={data.name} width={800} height={100} className={`    object-cover md:object-cover h-auto w-auto `} quality={100} priority />
+
+
+
+
+
+
                             </motion.div>
                         </motion.div>
                     )
                 })}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 {/* nav*/}
 
-                <div className="flex justify-center items-center  w-full mt-20 relative">
+                <div className="flex justify-center items-center  w-full mt-20 relative p-8">
                     <motion.div
-
                         initial={{
                             opacity: 0,
                             background: projects[position].background,
@@ -202,38 +206,40 @@ const Work: NextPage = () => {
                             background: projects[position].background
                         }}
 
-                        className="cursor-pointer bg-[red] h-8 w-8 rounded-l-full" onClick={prevMove}>
+                        className="cursor-pointer  h-8 w-8 rounded-l-full" onClick={prevMove}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1 left-1">
                             <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clipRule="evenodd" />
                         </svg>
                     </motion.div>
 
                     <div className="flex  relative ">
+
                         <motion.div
                             initial={{
                                 scale: 0,
                                 opacity: 0,
+                                left: `${distance}px`,
                                 background: projects[position].color
                             }}
                             animate={{
                                 scale: 1,
                                 opacity: 1,
-                                left: `${position === 0 ? 30 : position * +100 + 60}}px`,
+                                left: `${distance}px`,
                                 background: projects[position].color
-
-
                             }}
                             transition={{
                                 type: "spring",
-
                                 stiffness: 200,
                                 damping: 20
                             }}
-                            className={`absolute  right-0 left-0 -bottom-[70px] }] h-3 w-24`} style={{ boxShadow: ' 0px 39px 16px rgba(0, 0, 0, 0.01), 0px 22px 13px rgba(0, 0, 0, 0.05), 0px 10px 10px rgba(0, 0, 0, 0.09), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1)' }}  ></motion.div>
+                            className={`absolute  right-0 left-0 -bottom-[30px] }] h-3 w-32`} style={{ boxShadow: ' 0px 39px 16px rgba(0, 0, 0, 0.01), 0px 22px 13px rgba(0, 0, 0, 0.05), 0px 10px 10px rgba(0, 0, 0, 0.09), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1)' }}  ></motion.div>
 
-                        <div className="flex justify-between items-center  w-full	 cursor-pointer " >
+                        <motion.div >
+
+                        </motion.div>
+                        
+                        <div className="grid grid-cols-6 items-center  place-content-center place-items-center w-full	 cursor-pointer  relative" >
                             {projects.map((src, index) => (
-
                                 <motion.div
                                     whileHover={{
                                         scale: 1.1,
@@ -241,20 +247,37 @@ const Work: NextPage = () => {
                                     initial={{
                                         scale: 0
                                     }}
-                                    onClick={() => setPosition(index)}
+                                    onClick={() => setActivePosition(index)}
 
-                                    animate={{
-                                        scale: 1,
-                                        background: index === position ?
-                                            src.background : ' conic-gradient(from 192.62deg at 61.19% 50%, rgba(255, 255, 255, 0.5) -120deg, #FFFFFF 114.18deg, rgba(255, 255, 255, 0.5) 240deg, #FFFFFF 474.18deg)',
-                                    }}
+                                    animate={{ scale: 1, }}
                                     transition={{
                                         type: "spring",
                                         damping: 8,
                                         stiffness: 50
                                     }}
-                                    key={src.url} className=" w-20 h-20 rounded-full  ml-7 m-auto text-center">
-                                    <Image src={src.url} alt="auor" width={50} height={50} className="aspect-square m-auto mt-4" />
+                                    key={src.id + "___" + src.Role + "____" + src.name} className=" relative     m-auto text-center">
+                                    <Image src={src.logo} alt="auor" width={100} height={60} className=" m-auto mt-4   rounded-full   " />
+                                    <motion.div
+                                        key={src + "__" + index}
+                                        initial={{
+                                            scale: 0,
+                                            opacity: 0,
+                                            background: projects[position].color
+                                        }}
+                                        animate={{
+                                            scale: index === position ? 1 : 0,
+                                            opacity: index === position ? 1 : 0,
+                                            background: projects[position].color
+                                        }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 200,
+                                            damping: 20,
+                                            duration: 0.7
+                                        }}
+
+                                        className="w-2 h-2  -top-5   left-10 m-auto  z-1 rounded-full absolute">
+                                    </motion.div>
                                     <motion.h3
                                         initial={{
                                             scale: 0,
@@ -272,13 +295,8 @@ const Work: NextPage = () => {
                                         }}
 
                                         className={`mt-4 relative font-Poppins font-bold text-[${src.color}] text-xs text-center`}>{src.name}</motion.h3>
-
                                 </motion.div>
                             ))}
-
-
-
-
                         </div>
 
                     </div>
@@ -304,8 +322,8 @@ const Work: NextPage = () => {
 
 
 
-            {/* cchange the position as you are scroll*/}
-            <div className="min-[1000px]:hidden relative p-5">
+            {/* change the position as you are scroll*/}
+            <div className="min-[1025px]:hidden relative p-5">
                 <motion.div
                     initial={{
                         background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -321,153 +339,27 @@ const Work: NextPage = () => {
                     }}
 
                     className="absolute bottom-0 h-full left-0 right-0 " ></motion.div>
-                <div className="flex flex-wrap justify-between  relative">
-                    <div className="w-full md:w-full ">
-                        <div
 
 
-                            className="  m-auto relative">
-                            <Image src="/companies/Aisle.png" alt="aurora" width={700} height={100} className="lg:aspect-square  max-sm:aspect-square p-5   object-cover md:object-contain" priority />
-                        </div>
-                        <div className="ml-5 md:ml-14 ">
-                            <h2 className="text-3xl text-[#060D1C] font-bold font-Poppins mb-2 ">ALSLE ROCKET</h2>
-                            <p className="font-Poppins text-[#6983B7]">Front End Developer</p>
-                            <motion.button whileHover={{
-                                scale: 1.1,
-                                boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
-                            }} className="  bg-[#324670] h-14 w-52 mt-12 mb-32"><span className="font-Poppins text-white">View</span></motion.button>
 
-                        </div>
+                <section className="w-full h-full   justify-center items-center " >
+                    <div className="relative ">
+                        {projects.map((project, index) => {
+                            return (
+                                <ProjectImage key={project.name + "__" + project.year} ProjectName={project.name}
+                                    index={index}
+                                    comingSoon={project.comingSoon}
+                                    id={project.id}
+                                    hoverImage={project.hoverImages}
+                                    buttonColor={project.buttonColor}
+                                    reverse={index % 2 === 0 ? true : false}
+                                    titleColor={project.titleColor} Role={project.Role} Year={project.year} Description={project.description}
+                                    CompanyImage={project.CompanyImage}
+                                    color={project.color} />
+                            )
+                        })}
                     </div>
-                    <div className="w-full md:w-full mt-14" id="first">
-                        <motion.div
-                            style={{ originY: 0 }}
-                            ref={paraRef}
-                            initial={{
-                                scale: 0,
-                                opacity: 0,
-                                x: 200
-
-                            }}
-                            whileInView={{ scale: 1, opacity: 1, x: 0 }}
-                            transition={{
-                                delay: 0.5,
-                                type: "spring"
-                            }}
-                            className="  m-auto relative">
-                            <Image src="/companies/Aisle.png" alt="aurora" width={700} height={100} className="lg:aspect-square  max-sm:aspect-square p-5   object-cover md:object-contain" priority />
-                        </motion.div>
-                        <div className="ml-5 md:ml-14 ">
-                            <h2 className="text-3xl text-[#060D1C] font-bold font-Poppins mb-2 ">ALSLE ROCKET</h2>
-                            <p className="font-Poppins text-[#6983B7]">Front End Developer</p>
-                            <motion.button whileHover={{
-                                scale: 1.1,
-                                boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
-                            }} className="  bg-[#324670] h-14 w-52 mt-12 mb-32"><span className="font-Poppins text-white">View</span></motion.button>
-
-                        </div>
-                    </div>
-
-
-                    <div className="w-full md:w-full mt-14    " id="second">
-                        <motion.div
-                            style={{ originY: 0 }}
-                            ref={paraRef}
-                            initial={{
-                                scale: 0,
-                                opacity: 0,
-                                x: 200
-
-                            }}
-                            whileInView={{ scale: 1, opacity: 1, x: 0 }}
-                            transition={{
-                                delay: 0.5,
-                                type: "spring"
-                            }}
-
-
-
-                            className="  m-auto relative">
-                            <Image src="/companies/Aisle.png" alt="aurora" width={700} height={100} className="lg:aspect-square  max-sm:aspect-square p-5   object-cover md:object-contain" priority />
-                        </motion.div>
-                        <div className="ml-5 md:ml-14 ">
-                            <h2 className="text-3xl text-[#060D1C] font-bold font-Poppins mb-2 ">ALSLE ROCKET</h2>
-                            <p className="font-Poppins text-[#6983B7]">Front End Developer</p>
-                            <motion.button
-                                whileHover={{
-                                    scale: 1.1,
-                                    boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
-                                }}
-                                className="  bg-[#324670] h-14 w-52 mt-12 mb-32"><span className="font-Poppins text-white">View</span></motion.button>
-
-                        </div>
-                    </div>
-
-                    <div className="w-full md:w-full  mt-14   " id="third">
-                        <motion.div
-                            style={{ originY: 0 }}
-                            ref={paraRef}
-                            initial={{
-                                scale: 0,
-                                opacity: 0,
-                                x: 200
-
-                            }}
-                            whileInView={{ scale: 1, opacity: 1, x: 0 }}
-                            transition={{
-                                delay: 0.5,
-                                type: "spring"
-                            }}
-                            className="  m-auto relative">
-                            <Image src="/companies/Aisle.png" alt="aurora" width={700} height={100} className="lg:aspect-square  max-sm:aspect-square p-5   object-cover md:object-contain" priority />
-                        </motion.div>
-                        <div className="ml-5 md:ml-14 ">
-                            <h2 className="text-3xl text-[#060D1C] font-bold font-Poppins mb-2 ">ALSLE ROCKET</h2>
-                            <p className="font-Poppins text-[#6983B7]">Front End Developer</p>
-                            <motion.button
-                                whileHover={{
-                                    scale: 1.1,
-                                    boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
-                                }}
-                                className="  bg-[#324670] h-14 w-52 mt-12 mb-32"><span className="font-Poppins text-white">View</span></motion.button>
-
-                        </div>
-                    </div>
-
-                    <div className="w-full md:w-full  mt-14  ">
-                        <motion.div
-                            style={{ originY: 0 }}
-                            ref={paraRef}
-                            initial={{
-                                scale: 0,
-                                opacity: 0,
-                                x: 200
-
-                            }}
-                            whileInView={{ scale: 1, opacity: 1, x: 0 }}
-                            transition={{
-                                delay: 0.5,
-                                type: "spring"
-                            }}
-                            className="  m-auto relative">
-                            <Image src="/companies/Aisle.png" alt="aurora" width={700} height={100} className="lg:aspect-square  max-sm:aspect-square p-5   object-cover md:object-contain" priority />
-                        </motion.div>
-                        <div className="ml-5 md:ml-14 ">
-                            <h2 className="text-3xl text-[#060D1C] font-bold font-Poppins mb-2 ">ALSLE ROCKET</h2>
-                            <p className="font-Poppins text-[#6983B7]">Front End Developer</p>
-                            <motion.button whileHover={{
-                                scale: 1.1,
-                                boxShadow: "0px 66px 27px rgba(23, 25, 28, 0.01), 0px 37px 22px rgba(23, 25, 28, 0.05), 0px 17px 17px rgba(23, 25, 28, 0.09), 0px 4px 9px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)"
-                            }} className="  bg-[#324670] h-14 w-52 mt-12 mb-32"><span className="font-Poppins text-white">View</span></motion.button>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-
+                </section>
 
 
             </div>
@@ -475,3 +367,13 @@ const Work: NextPage = () => {
     )
 }
 export default Work
+
+
+/* 
+ {data.comingSoon ? <motion.h1
+                                    className="text-4xl"
+                                    style={{ color: data.color }}
+
+                                >COMING SOON</motion.h1> : null}
+
+*/

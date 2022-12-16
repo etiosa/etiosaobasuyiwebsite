@@ -64,7 +64,7 @@ const Word = ({ word,
 
             {words.map((letter, index) => {
                 return (
-                    <motion.p style={{ display: "inline-block", marginRight: "0.2rem" }} variants={child}
+                    <motion.p className="text-md" style={{ display: "inline-block", marginRight: "0.3rem" }} variants={child}
                         key={letter + '--' + index}>
                         {letter}
                     </motion.p>

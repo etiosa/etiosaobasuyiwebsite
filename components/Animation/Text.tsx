@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
 
 interface Props extends HTMLMotionProps<"div"> {
@@ -52,7 +52,6 @@ const Text: FC<Props> = ({
     }
   };
 
-console.log({...props.Textstyle} )
 
   return (
     <motion.h1

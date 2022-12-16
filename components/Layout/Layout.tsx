@@ -1,7 +1,11 @@
+import { motion } from "framer-motion";
 import { useEffect, useRef } from "react"
 import Line from "../line/line"
 import Nav from "../Nav/Nav"
+import { useRouter } from 'next/router'
+
 function Layout({ children }: any) {
+    const router = useRouter()
 
     const cursors = useRef(null);
 
@@ -48,16 +52,73 @@ function Layout({ children }: any) {
 
 
     })
+    const container = {
+        initial: {
+            opacity: 0,
+              clipPath: "circle(0.2% at 0 0)",
+          transition: {
+            duration: 1.5,
+            staggerChildren: 0.06
+          }
+        },
+        animate: {
+            opacity: 1,
+            clipPath: "circle(141.1% at 0 0)",
+          transition: {
+            duration: 1.5,
+            staggerChildren: 0.06
+          }
+    
+        },
+        exit: {
+            opacity:1,
+
+        
+          transition: {
+            duration: 1,
+            staggerChildren: 0.05
+          }
+        },
+    
+      };
 
     return (
-        <>
+        <> <motion.div 
+        
+        key={router.route}
+        initial="initialState"
+        animate="animateState"
+        exit="exitState"
+        transition={{
+          duration: 2.1,
+        }}
+        variants={{
+            initialState: {
+              opacity: 0,
+              clipPath: "circle(0.2% at 0 0)",
+            },
+            animateState: {
+              opacity: 1,
+              clipPath: "circle(141.1% at 0 0)",
+            },
+            exitState: {
+                opacity:1,
+            
+            },
+          }}
+        
+        >
             <Nav />
             <Line />
-            <main>
+            <main >
                 {children}
-                
+
             </main>
+
+</motion.div>
         </>
+
+
 
     )
 }
@@ -66,6 +127,25 @@ function Layout({ children }: any) {
 export default Layout
 /*  <Line />
 
+ variants={{
+            initialState: {
+              opacity: 0,
+              clipPath: "circle(0.2% at 0 0)",
+            },
+            animateState: {
+              opacity: 1,
+              clipPath: "circle(141.1% at 0 0)",
+            },
+            exitState: {
+                opacity:1,
+            
+            },
+          }}
+
+
+          
+
+linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)
 <div
 
 

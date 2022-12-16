@@ -16,6 +16,8 @@ interface ProjectImageProps {
     color: string,
     reverse?: boolean,
     hoverImage?: string[]
+    id?: string,
+    comingSoon?: boolean
 }
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
@@ -33,7 +35,7 @@ const Hover = {
 }
 const popImage = {
     image: {
-      
+
         zIndex: 9999,
         x: 50,
         y: -50,
@@ -49,7 +51,7 @@ const popImage = {
 const onView = {
     whileOnView: {
         left: 0,
-       opacity: 1,
+        opacity: 1,
         transition: {
             type: "spring",
             damping: 12,
@@ -66,10 +68,10 @@ const onView = {
 
 const ProjectImage = (props: ProjectImageProps) => {
     const [hoverImage, setHoverImage] = useState('')
-    const[hoverIndex, setHoverIndex]= useState(-1)
+    const [hoverIndex, setHoverIndex] = useState(-1)
 
     return (
-        <div key={props.ProjectName + '__' + props.index} className="flex w-full justify-center items-center mt-14   lg:flex-row    " id="work-container">
+        <div key={props.ProjectName + '__' + props.index} className="flex w-full justify-center items-center mt-14   lg:flex-row" id={props.id}>
             <div key={props.ProjectName + "__" + props.Role + "__" + props.Year} className={`flex max-[1020px]:flex-col    justify-center   items-center mt-14 mb-24  ${props.reverse ? "flex-row-reverse" : "flex-row"} `} >
                 <motion.div
                     key={props.ProjectName}
@@ -88,95 +90,91 @@ const ProjectImage = (props: ProjectImageProps) => {
                     className="relative overflow-hidden" variants={Hover} whileHover="image">
                     <motion.div
                         key={props.Role}
-                        initial={{ opacity: 1,
-                            
+                        initial={{
+                            opacity: 1,
+
                         }}
-                 
+
                         animate={{
-                            opacity: hoverImage.length?0.5:1
+                            opacity: hoverImage.length ? 0.5 : 1
 
                         }}
                         onHoverEnd={() => {
                             setHoverImage('')
-                            setHoverIndex((prev)=>{
+                            setHoverIndex((prev) => {
                                 console.log("hover end")
                                 console.log(prev)
                                 return -1;
                             })
-                         
+
                         }}
                         onHoverStart={() => {
                             // setHoverImage(image)
-                             setHoverIndex(()=>{
-                              
-                                 return 0;
-                             })
-                             
-                         }}
-                     
+                            setHoverIndex(() => {
+
+                                return 0;
+                            })
+
+                        }}
+
                         whileHover={{
                             opacity: 0.5,
-                            
+
                         }}
                         className="relative" style={{ opacity: 0.5 }}>
 
-                        <Image src={hoverImage ? hoverImage : props.CompanyImage} alt="aurora" width={800} height={100} className="project-image object-cover p-2  relative z-88" quality={100} priority />
+                        {props.comingSoon ?
+                            <div></div> :
+                            <Image src={hoverImage ? hoverImage : props.CompanyImage} alt={props.ProjectName} width={800} height={100} className="project-image object-cover p-2  relative z-88" quality={100} priority />
+
+
+                        }
 
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                         initial={{
-                            opacity:hoverIndex===-1?0:1
+                            opacity: hoverIndex === -1 ? 0 : 1
                         }}
                         animate={{
-                            opacity:hoverIndex!==-1?1:0
+                            opacity: hoverIndex !== -1 ? 1 : 0
 
                         }}
-                       
-                    
-                    key={props.index + "__" + props.ProjectName} className="relative  max-[500px]:hidden">
+
+
+                        key={props.index + "__" + props.ProjectName} className="relative  max-[500px]:hidden">
                         {props.hoverImage ? props.hoverImage.map((image, index) => {
                             const top = (180 + index) + (index * 50);
-                            const left = (400 *index) + (index * 2)
-                            console.log(hoverIndex===index)
+                            const left = (400 * index) + (index * 2)
+                            console.log(hoverIndex === index)
 
                             return (
                                 <motion.div
                                     onHoverStart={() => {
                                         setHoverImage(image)
-                                        setHoverIndex((prev)=>{
-                                         
+                                        setHoverIndex(() => {
                                             return index;
                                         })
-                                        
                                     }}
-                                  
-
                                     style={{ left: left + "px", top: -top + "px", height: "7rem" }}
                                     key={image + "__" + index}
-                                  
-                                    
-                                    variants={popImage} initial={{ opacity: 0 ,
-                                        scale: 1,
-
-                                    }}   
-                                   animate={{
-                                   // scale: hoverIndex===index?1:0.2,
-                                    opacity: hoverIndex===index?1:0.8
-                                   }}
-                                   transition={{
-                                    type: "spring",
-                                    damping: 12,
-                                    stiffness: 200,
-                                    duration: 1,
-                                   }}
-                                   whileHover={{
-                                    scale: hoverIndex===index?2:1,
-                                    opacity: hoverIndex===index?1:0.5
-                                    
-
-                                   }}
-
+                                    variants={popImage} initial={{
+                                        opacity: 0,
+                                        scale: 1
+                                    }}
+                                    animate={{
+                                        opacity: hoverIndex === index ? 1 : 0.8
+                                    }}
+                                    transition={{
+                                        type: "spring",
+                                        damping: 12,
+                                        stiffness: 200,
+                                        duration: 1,
+                                    }}
+                                    whileHover={{
+                                        scale: hoverIndex === index ? 2 : 1,
+                                        opacity: hoverIndex === index ? 1 : 0.9
+                                    }}
                                     className={`absolute  -z-10 bottom-0  w-[200px] h-[200px]`}>
                                     <Image src={image} alt="aurora" width={800} height={100} className="  object-cover p-2  relative z-88" quality={100} priority />
                                 </motion.div>
@@ -208,7 +206,7 @@ const ProjectImage = (props: ProjectImageProps) => {
                         initial="init"
                         whileInView="whileOnView"
 
-                        className='relative lg:w-full md:w-2/3 leading-7 mt-5' style={{ color: props.titleColor }}>{props.Description}</motion.p>
+                        className='relative lg:w-full md:w-2/3 leading-7 mt-5 sm:text-lg' style={{ color: props.color }}>{props.Description}</motion.p>
                     <motion.button
                         whileHover={{
                             skewY: 3,
@@ -224,7 +222,6 @@ const ProjectImage = (props: ProjectImageProps) => {
                         }}
                         transition={{
                             type: "spring",
-
                             duration: 0.5
                         }}
                         className="relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">View</span></motion.button>
