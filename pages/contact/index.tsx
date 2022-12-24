@@ -1,6 +1,6 @@
 import { NextPage } from "next/types"
 import { motion } from "framer-motion"
-import { useState} from "react"
+import { useState } from "react"
 
 import { addDoc, collection, firestore, serverTimestamp } from "../util/firebase"
 

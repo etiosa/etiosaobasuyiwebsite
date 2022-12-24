@@ -25,10 +25,7 @@ const About: NextPage = () => {
           stiffness: 300,
           duration: 2
         }}
-
-
         className="absolute w-[100wv] h-[100vh] left-0 right-0  " style={{
-
           backgroundImage: "url(../companies/vector.svg)",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
@@ -39,16 +36,12 @@ const About: NextPage = () => {
 
       </motion.div>
       <div className="flex flex-col  items-center  w-full justify-center relative mt-32 overflow-hidden">
-
         <div className=" w-11/12  sm:w-7/12 md:w-9/12 lg:w-7/12 relative block   items-center mb-14 ">
-          <Text className="text-[#2E435F] font-bold text-[1.6rem]  md:text-[2.7rem]  lg:text-[3rem] lg:leading-[3.5rem] font-Poppins leading-[3rem]  relative" text="Helping Companies To" />
-          <Text className="text-[#2E435F] font-bold text-[1.6rem]  md:text-[2.7rem] lg:text-[3rem] lg:leading-[3.5rem] font-Poppins leading-[3rem]  relative" text="Build Clean, Modern and" />
-          <Text className="text-[#2E435F] font-bold text-[1.6rem]  md:text-[2.7rem]  lg:text-[3rem]  lg:leading-[3.5rem] font-Poppins leading-[3rem]  relative" text="Initutive User Interface." />
+          <Word className="text-[#2E435F] font-bold text-[1.6rem]  md:text-[2.7rem]  lg:text-[3rem] lg:leading-[4rem] font-Poppins leading-[3rem]  relative" word="Helping Companies To Build Clean Modern and Initutive User Interface." />
           <Word className="text-[#2E435F] mt-4 " word="A developer with a passion for design" />
         </div>
-
         <div className="w-11/12  sm:w-7/12 md:w-9/12 lg:w-7/12  relative font-Poppins  text-[#2E435F] flex p-3 sm:p-0   mt-14 leading-[2rem] mb-24">
-          <Word className="w-full xl:w-6/12 sm:w-11/12" word=" My design philosophy is to minimize distractions for what's truly valuable or essential.  To ensure that I can deliver a 
+          <Word className="w-full xl:w-8/12 sm:w-11/12" word=" My design philosophy is to minimize distractions for what's truly valuable or essential.  To ensure that I can deliver a 
           high-quality and unique product to my client, I follow a clear defined steps"/>
         </div>
 
@@ -216,14 +209,14 @@ const About: NextPage = () => {
         <motion.div className="text-[#2E435F] font-bold  relative mt-14">
           <motion.h1 className="text-3xl lg:text-5xl mb-5 relative"
             initial={{
-              opacity:0,
-            
-              top:"10rem"
+              opacity: 0,
+
+              top: "10rem"
             }}
             whileInView={{
-             
-              opacity:1,
-              top:0
+
+              opacity: 1,
+              top: 0
             }}
             transition={{
               type: "spring",
@@ -231,50 +224,50 @@ const About: NextPage = () => {
               stiffness: 200,
               duration: 1.5
             }}
-  
+
           >Have a Project in Mind?</motion.h1>
           <motion.div
-          initial={{
-            scale:0
-          }}
-          whileInView={{
-            scale:1
-          }}
-          transition={{
-            type: "spring",
-            damping: 12,
-            stiffness: 200,
-            duration: 1
-          }}
-          whileHover={{
-            boxShadow: `0px 233px 93px rgba(0, 0, 0, 0.01), 0px 131px 79px rgba(0, 0, 0, 0.05), 0px 58px 58px rgba(0, 0, 0, 0.09),
+            initial={{
+              scale: 0
+            }}
+            whileInView={{
+              scale: 1
+            }}
+            transition={{
+              type: "spring",
+              damping: 12,
+              stiffness: 200,
+              duration: 1
+            }}
+            whileHover={{
+              boxShadow: `0px 233px 93px rgba(0, 0, 0, 0.01), 0px 131px 79px rgba(0, 0, 0, 0.05), 0px 58px 58px rgba(0, 0, 0, 0.09),
              0px 15px 32px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1)`,
-            scale: 1.1
-          }}
+              scale: 1.1
+            }}
             style={{
               background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(242, 101, 39, 0.25) 100%)"
             }}
             className=" rounded-full w-52  h-52 m-auto relative mt-10 cursor-pointer">
 
-            <motion.h1 
-                initial={{
-                  opacity:0,
-                
-                  top:0
-                }}
+            <motion.h1
+              initial={{
+                opacity: 0,
 
-                whileInView={{
-                  opacity:1,
-                
-                  top:"5rem"
-                }}
-                transition={{
-                  type: "spring",
-                  damping: 12,
-                  stiffness: 200,
-                  duration: 1
-                }}
-            className="absolute  whitespace-nowrap  text-[#A74B20]  capitalize  -left-[0.6rem]  text-5xl">Let's Talk</motion.h1>
+                top: 0
+              }}
+
+              whileInView={{
+                opacity: 1,
+
+                top: "5rem"
+              }}
+              transition={{
+                type: "spring",
+                damping: 12,
+                stiffness: 200,
+                duration: 1
+              }}
+              className="absolute  whitespace-nowrap  text-[#A74B20]  capitalize  -left-[0.6rem]  text-5xl">Let's Talk</motion.h1>
 
           </motion.div>
 

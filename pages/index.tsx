@@ -13,14 +13,10 @@ export default function Home() {
   const router = useRouter()
 
   return (
-    <motion.div
-     
-
-    >
+    <motion.div>
       <motion.div
         initial={{
           opacity: 0,
-          //top: "20rem",
           pathLength: 0
 
         }}
@@ -39,11 +35,11 @@ export default function Home() {
 
 
         className="absolute w-[100wv] h-[100vh] left-0 right-0  " style={{
-          backgroundImage: "url(../companies/vector.svg)",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "top 1% center",
-          opacity: 0.5
+        //  backgroundImage: "url(../companies/vector.svg)",
+        //  backgroundRepeat: "no-repeat",
+       //   backgroundAttachment: "fixed",
+        //  backgroundPosition: "top 1% center",
+        //  opacity: 0.5
         }}>
 
 
@@ -61,7 +57,7 @@ export default function Home() {
           <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center relative mt-52'>
             <div>
               <div className="relative">
-                <Word className="font-Poppins leading-[3.5rem]	 text-[#0B1727] font-bold text-4xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
+                <Word className="font-Poppins leading-[3.5rem]	 text-[#2E435F] font-bold text-4xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
               </div>
               <div className=" mt-4 md:w-10/12 sm:w-96 ">
                 <Text duration={0.02} className="font-Poppins leading-5 text-[#2E435F] text-sm" text='I will help you design a Minimalistic, and intuitive user interface that  ' />
@@ -71,9 +67,9 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-start md:flex-row md:mt-32">
               <motion.button
-              onClick={()=>{
-                router.push("/work")
-              }}
+                onClick={() => {
+                  router.push("/work")
+                }}
                 initial={{
                   opacity: 0
                 }}
@@ -83,7 +79,7 @@ export default function Home() {
                 transition={{
                   type: "spring",
                   duration: 0.5
-              }}
+                }}
                 style={{
                   boxShadow: "0px 58px 23px rgba(121, 113, 234, 0.01), 0px 32px 19px rgba(121, 113, 234, 0.05), 0px 14px 14px rgba(121, 113, 234, 0.09), 0px 4px 8px rgba(121, 113, 234, 0.1), 0px 0px 0px rgba(121, 113, 234, 0.1)",
                 }}
@@ -93,16 +89,16 @@ export default function Home() {
                   boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
                 }} className="bg-[#F5803E] h-14 w-52 mb-24 mt-20 md:mt-0 md:mb-0 md:mr-32"><span className="font-Poppins text-white">View My Work</span></motion.button>
               <motion.button
-              onClick={()=>{
-                router.push("/contact")
-              }}
+                onClick={() => {
+                  router.push("/contact")
+                }}
                 initial={{
                   opacity: 0
                 }}
                 transition={{
                   type: "spring",
                   duration: 0.5
-              }}
+                }}
                 animate={{
                   opacity: 1
                 }}
@@ -236,7 +232,7 @@ export default function Home() {
 
                     }}
                     key={index + "__" + logo.companyName}>
-                    <Image width={150} height={150} src={logo.logo} alt={logo.companyName}  loading="lazy"  />
+                    <Image width={150} height={150} src={logo.logo} alt={logo.companyName} loading="lazy" />
 
                   </motion.div>)
               })}

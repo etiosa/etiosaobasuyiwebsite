@@ -45,14 +45,13 @@ opacity:0 ;
 }
 .App {
   width: 85vw;
-  height: 100vh;
-  overflow: hidden;
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
+    height: 60vh;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center;*/
 }
 
 .row {
@@ -61,10 +60,10 @@ opacity:0 ;
 
 .container {
   position: absolute;
-  width: 60vw;
-  height: 90vh;
-  overflow: hidden;
-  top: -45vh;
+    width: 60vw;
+    /* height: 90vh; */
+    overflow: hidden;
+    /* top: -45vh;*/
 }
 .container > img {
   height: auto;
@@ -79,22 +78,6 @@ opacity:0 ;
 
 }
 
-.bg-animation::after{
- 
 
- 
 
-}
 
-@keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
-}

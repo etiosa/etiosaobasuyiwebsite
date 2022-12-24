@@ -5,12 +5,12 @@ interface Props extends HTMLMotionProps<"div"> {
   text: string;
   delay?: number;
   duration?: number;
-  className?:string;
-  titlecolor?:string;
-  descriptionColor?:string;
-  index?:Number,
-  Textstyle?:{},
-  currentporjectposition?:Number
+  className?: string;
+  titlecolor?: string;
+  descriptionColor?: string;
+  index?: Number,
+  Textstyle?: {},
+  currentporjectposition?: Number
 }
 
 const Text: FC<Props> = ({
@@ -55,10 +55,10 @@ const Text: FC<Props> = ({
 
   return (
     <motion.h1
-      style={{ display: "flex", overflow: "hidden", color:props.titlecolor}}
+      style={{ display: "flex", overflow: "hidden", color: props.titlecolor }}
       variants={container}
-      initial=  {props.index ===props.currentporjectposition?"hidden":""}
-      animate={props.index === props.currentporjectposition?"visible":"hidden"}
+      initial={props.index === props.currentporjectposition ? "hidden" : ""}
+      animate={props.index === props.currentporjectposition ? "visible" : "hidden"}
       className={props.className}
       {...props}
     >

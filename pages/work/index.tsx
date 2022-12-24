@@ -111,7 +111,6 @@ const Work: NextPage = () => {
                         stiffness: 200,
                         damping: 20
                     }}
-
                     className="fixed  h-screen left-0 right-0 " ></motion.div>
                 {projects.map((data, index) => {
                     return (
@@ -237,7 +236,7 @@ const Work: NextPage = () => {
                         <motion.div >
 
                         </motion.div>
-                        
+
                         <div className="grid grid-cols-6 items-center  place-content-center place-items-center w-full	 cursor-pointer  relative" >
                             {projects.map((src, index) => (
                                 <motion.div
@@ -333,7 +332,6 @@ const Work: NextPage = () => {
                     }}
                     transition={{
                         type: "spring",
-
                         stiffness: 200,
                         damping: 20
                     }}

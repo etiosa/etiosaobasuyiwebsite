@@ -10,31 +10,54 @@ function Nav() {
   return (
     <>
     <MobileNav/>
-    <nav className="max-[500px]:hidden w-scren justify-center	flex mb-14">
+    <nav className="max-[800px]:hidden w-scren justify-center	flex mb-14">
 
       <motion.ul
       
         className="bg-{#DCE0E6]   text-[#78797A]  font-Poppins   mt-10 relative z-40  w-96  md:w-11/12 flex items-center  justify-evenly	 ">
         
-          <li>
-            <Link href="#">Etioa Obasuyi</Link>
-          </li>
-         
-          <li>
-            <Link href="#">Work</Link>
-          </li>
-          <li>
-            <Link href="#">About</Link>
-          </li>
-          <li>
-            <Link href="#">Contact</Link>
-          </li>
-          <li>
-            <Link href="#">Blog</Link>
-          </li>
-          <li>
-            <Link href="#">Experiments</Link>
-          </li>
+        <motion.li className={` relative p-5 text-sm ${router.pathname === "/" ? "text-active flex justify-center text-sm" : ""}`}>
+            <Link href="/work" className={router.pathname === "/" ? "font-bold" : ""} >Etiosa Obasuyi</Link>
+            {router.pathname === "/" ?
+              <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute  bottom-3'></motion.div> :
+              null}
+          </motion.li>
+          
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/work" ? "text-active flex justify-center text-sm" : ""}`}>
+            <Link href="/work" className={router.pathname === "/work" ? "font-bold" : ""} >Work</Link>
+            {router.pathname === "/work" ?
+              <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute  bottom-3'></motion.div> :
+              null}
+          </motion.li>
+
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/about" ? "text-active flex justify-center" : ""}`}>
+            <Link href="/about" className={router.pathname === "/about" ? "font-bold" : ""} >About</Link>
+            {router.pathname === "/about" ?
+              <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
+              null}
+          </motion.li>
+
+          
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/contact" ? "text-active flex justify-center" : ""}`}>
+            <Link href="/contact" className={router.pathname === "/contact" ? "font-bold" : ""}>Contact</Link>
+            {router.pathname === "/contact" ?
+              <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
+              null}
+          </motion.li>
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/blog" ? "text-active flex justify-center" : ""}`}>
+            <Link href="/contact" className={router.pathname === "/blog" ? "font-bold" : ""}>Blog</Link>
+            {router.pathname === "/blog" ?
+              <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
+              null}
+          </motion.li>
+
+
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/experiment" ? "text-active flex justify-center" : ""}`}>
+            <Link href="/contact" className={router.pathname === "/experiment" ? "font-bold" : ""}>Experiment</Link>
+            {router.pathname === "/experiment" ?
+              <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
+              null}
+          </motion.li>
 
       </motion.ul>
     </nav>
@@ -44,6 +67,16 @@ function Nav() {
 }
 
 export default Nav
+
+
+
+
+
+
+
+
+
+
 /* 
 
 

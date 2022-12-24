@@ -17,7 +17,8 @@ interface ProjectImageProps {
     reverse?: boolean,
     hoverImage?: string[]
     id?: string,
-    comingSoon?: boolean
+    comingSoon?: boolean,
+    comingSoonUrl?:string
 }
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
@@ -176,7 +177,8 @@ const ProjectImage = (props: ProjectImageProps) => {
                                         opacity: hoverIndex === index ? 1 : 0.9
                                     }}
                                     className={`absolute  -z-10 bottom-0  w-[200px] h-[200px]`}>
-                                    <Image src={image} alt="aurora" width={800} height={100} className="  object-cover p-2  relative z-88" quality={100} priority />
+                                 <Image src={props.comingSoon ? "/companies/coming.png" : image} alt={props.ProjectName} width={800} height={100} className={`   object-cover p-2  relative z-88 `} quality={100} priority />
+
                                 </motion.div>
                             )
                         }) : null}

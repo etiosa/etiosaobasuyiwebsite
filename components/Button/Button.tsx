@@ -3,20 +3,20 @@ import { motion } from "framer-motion"
 interface IButtonProps {
     color: string,
     link?: string,
-    className?:string
-    Title:string,
-    TitleClassName?:string,
-    onClick?:Function,
-    backgroundColor?:string
+    className?: string
+    Title: string,
+    TitleClassName?: string,
+    onClick?: Function,
+    backgroundColor?: string
 }
-export const Button = (props:IButtonProps) => {
+export const Button = (props: IButtonProps) => {
 
 
     return (
         <motion.button
-        style={{
-            backgroundColor:props.backgroundColor
-        }}
+            style={{
+                backgroundColor: props.backgroundColor
+            }}
             whileHover={{
                 skewY: 3,
                 scale: 1.1,

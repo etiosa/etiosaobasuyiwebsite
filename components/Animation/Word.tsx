@@ -54,9 +54,9 @@ const Word = ({ word,
     const words = word.split(" ");
     return (
         <motion.div
-        className={props.className}
+            className={props.className}
             variants={container}
-            initial={props.index === props.currentporjectposition? "hidden" : ""}
+            initial={props.index === props.currentporjectposition ? "hidden" : ""}
             animate={props.index === props.currentporjectposition ? "visible" : "hidden"}
 
 
