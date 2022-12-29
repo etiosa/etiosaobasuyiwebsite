@@ -153,11 +153,7 @@ export default function Home() {
               })}
             </motion.div>
             </motion.div>
-
-
-
-
-          <motion.div className="text-[#2E435F] font-bold  relative mt-14">
+            <motion.div className="text-[#2E435F] font-bold  relative mt-14">
             <motion.h1 className="text-3xl lg:text-4xl mb-5 relative uppercase"
               initial={{ opacity: 0, top: "10rem" }}
               whileInView={{ opacity: 1, top: 0 }}
