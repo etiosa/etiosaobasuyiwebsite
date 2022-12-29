@@ -16,8 +16,6 @@ const About: NextPage = () => {
           initial={{
             top: "-10rem"
           }}
-
-
           whileInView={{
             top: 10
           }}
@@ -26,8 +24,6 @@ const About: NextPage = () => {
         <Word className="w-full xl:w-11/12 sm:w-11/12" word=" My design philosophy is to minimize distractions for what's truly valuable or essential.  To ensure that I can deliver a 
           high-quality and unique product to my client, I follow a clear defined steps"/>
       </div>
-
-      {/* process role tablet and up*/}
 
       <div className="w-7/12 md:w-8/12   lg:w-7/12 flex  max-[700px]:hidden">
         <motion.div
@@ -47,8 +43,6 @@ const About: NextPage = () => {
             stiffness: 300,
             duration: 1.5
           }}
-
-
           className="bg-[#2E435F]   h-[1900px]  w-1 relative ">
           <>
             {Steps.map(data => {
@@ -120,7 +114,6 @@ const About: NextPage = () => {
         </motion.div>
       </div>
 
-      {/* process role mobile*/}
       <motion.div className="flex  overflow-hidden flex-col w-full justify-center items-center min-[700px]:hidden">
         {Steps.map((step, index) => {
           return (
