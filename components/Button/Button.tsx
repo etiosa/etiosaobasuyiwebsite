@@ -6,7 +6,7 @@ interface IButtonProps {
     className?: string
     Title: string,
     TitleClassName?: string,
-    onClick?: Function,
+    onClick: Function,
     backgroundColor?: string
 }
 export const Button = (props: IButtonProps) => {
@@ -14,6 +14,9 @@ export const Button = (props: IButtonProps) => {
 
     return (
         <motion.button
+        onClick={()=>{
+            props.onClick()
+        }}
             style={{
                 backgroundColor: props.backgroundColor
             }}
@@ -23,7 +26,8 @@ export const Button = (props: IButtonProps) => {
                 boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
             }}
             whileInView={{
-                opacity: 1
+                opacity: 1, 
+                left:0
             }}
             initial={{
                 opacity: 0,
@@ -31,6 +35,7 @@ export const Button = (props: IButtonProps) => {
             }}
             animate={{
                 left: 0,
+                opacity:1
             }}
             transition={{
                 type: "spring",

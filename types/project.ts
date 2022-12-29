@@ -1,31 +1,31 @@
 export const projects = [
   {
-    url: "/companies/Malith_AB Logo (1)-01 (2) 2.png ",
-    color: "#772406",
-    id: "first",
+    url: "",
     workImages: [
-      "/companies/morjoy/MorJoy_front.png",
-      "/companies/morjoy/MorJoy_home.png",
-      "/companies/morjoy/MorJoy_product.png",
+      "/companies/aisle/AISLE_HOME.png",
+      "/companies/aisle/Aisel_market.png",
+      "/companies/aisle/Aisle_join.png",
+      "/companies/aisle/Aisle_work.png",
     ],
-    name: "MORJOY CANDLES",
+    logo: "/companies/logo/ARS.png",
     comingSoon: false,
-    logo: "/companies/logo/Morjoy.png",
-    CompanyImage: "/companies/MorJoy_Candles.png",
-    Role: "Front-End Developer",
-    description:
-      "MorJoy Candles is a small business based in Texas. MorJoy Candles  are scented and handmade.",
-    year: "2021",
-    buttonColor: "#E9A36C",
-    titleColor: "#BD5809",
-    hoverImages: [
-      "/companies/morjoy/MorJoy_front.png",
-      "/companies/morjoy/MorJoy_home.png",
-    ],
-    backdrop:
-      "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 177, 145, 0.1) 100%)",
+    color: "#772406",
+    id: "third",
     background:
-      "conic-gradient(from 197.57deg at 60% 50%, rgba(255, 255, 255, 0.78) -92.78deg, rgba(216, 177, 146, 0.2) 116.53deg, rgba(255, 255, 255, 0.78) 267.22deg, rgba(216, 177, 146, 0.2) 476.53deg)",
+      "conic-gradient(from 186.4deg at 55.15% 54.06%, #FFFFFF -153.3deg, rgba(241, 88, 46, 0.2) 63.75deg, #FFFFFF 206.7deg, rgba(241, 88, 46, 0.2) 423.75deg)",
+    name: "ALSLE ROCKET",
+    year: "2022",
+    titleColor: "#A7123C",
+    buttonColor: "#F04778",
+    hoverImages: [
+      "/companies/aisle/AISLE_HOME.png",
+      "/companies/aisle/Aisel_market.png",
+    ],
+    CompanyImage: "/companies/Aisle.png",
+    Role: "Front-End Developer",
+    description: `Aisle Rocket is a digital marketing agency that harnesses the power of data and actionable insights to deliver breakthrough ideas and brand experiences that drive emotional connection and measurable impact.`,
+    backdrop:
+      "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(242, 101, 39, 0.1) 100%)",
   },
   {
     url: "",
@@ -56,34 +56,33 @@ export const projects = [
     background:
       " conic-gradient(from 12.23deg at 54.33% 52.5%, #FFFFFF -142.11deg, rgba(40, 58, 94, 0.2) 120.95deg, #FFFFFF 217.89deg, rgba(40, 58, 94, 0.2) 480.95deg)",
   },
-
   {
-    url: "",
-    workImages: [
-      "/companies/aisle/AISLE_HOME.png",
-      "/companies/aisle/Aisel_market.png",
-      "/companies/aisle/Aisle_join.png",
-      "/companies/aisle/Aisle_work.png",
-    ],
-    logo: "/companies/logo/ARS.png",
-    comingSoon: false,
+    url: "/companies/Malith_AB Logo (1)-01 (2) 2.png ",
     color: "#772406",
-    id: "third",
-    background:
-      "conic-gradient(from 186.4deg at 55.15% 54.06%, #FFFFFF -153.3deg, rgba(241, 88, 46, 0.2) 63.75deg, #FFFFFF 206.7deg, rgba(241, 88, 46, 0.2) 423.75deg)",
-    name: "ALSLE ROCKET",
-    year: "2022",
-    titleColor: "#A7123C",
-    buttonColor: "#F04778",
-    hoverImages: [
-      "/companies/aisle/AISLE_HOME.png",
-      "/companies/aisle/Aisel_market.png",
+    id: "first",
+    workImages: [
+      "/companies/morjoy/MorJoy_front.png",
+      "/companies/morjoy/MorJoy_home.png",
+      "/companies/morjoy/MorJoy_product.png",
     ],
-    CompanyImage: "/companies/Aisle.png",
+    name: "MORJOY CANDLES",
+    comingSoon: false,
+    logo: "/companies/logo/Morjoy.png",
+    CompanyImage: "/companies/MorJoy_Candles.png",
     Role: "Front-End Developer",
-    description: `Aisle Rocket is a digital marketing agency that harnesses the power of data and actionable insights to deliver breakthrough ideas and brand experiences that drive emotional connection and measurable impact.`,
+    description:
+      "MorJoy Candles is a small business based in Texas. Our candles are scented and each candle is handmade with love; and hand-poured by me. MorJoy candle is free of phthalate, synthetic dyes and cruelty free.",
+    year: "2021",
+    buttonColor: "#E9A36C",
+    titleColor: "#BD5809",
+    hoverImages: [
+      "/companies/morjoy/MorJoy_front.png",
+      "/companies/morjoy/MorJoy_home.png",
+    ],
     backdrop:
-      "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(242, 101, 39, 0.1) 100%)",
+      "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 177, 145, 0.1) 100%)",
+    background:
+      "conic-gradient(from 197.57deg at 60% 50%, rgba(255, 255, 255, 0.78) -92.78deg, rgba(216, 177, 146, 0.2) 116.53deg, rgba(255, 255, 255, 0.78) 267.22deg, rgba(216, 177, 146, 0.2) 476.53deg)",
   },
 
   {
