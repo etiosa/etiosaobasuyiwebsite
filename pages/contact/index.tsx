@@ -1,7 +1,6 @@
 import { NextPage } from "next/types"
 import { motion } from "framer-motion"
 import { useState } from "react"
-
 import { addDoc, collection, firestore, serverTimestamp } from "../util/firebase"
 
 const Contact: NextPage = () => {
@@ -30,26 +29,13 @@ const Contact: NextPage = () => {
                 setDone(true)
             }
         }
-
     }
     return (
-
         <>
             {isDone ?
                 <div className="m-auto block w-full mt-96 relative text-center text-4xl uppercase font-bold text-[#0B1727] whitespace-nowrap">
                     <span>Thank your inquries!</span></div> :
-                <motion.div
-                    initial={{
-                        opacity: 0
-                    }}
-                    animate={{
-                        opacity: 1
-                    }}
-                    transition={{
-                        type: "spring",
-                        duration: 4
-                    }}
-                    className="relative  flex flex-col w-full  font-Poppins  items-center justify-items-center mt-32">
+                <motion.div className="relative  flex flex-col w-full  font-Poppins  items-center justify-items-center mt-32">
                     <div className="w-96  lg:w-5/12 p-3 text-sm text-[#2E435F] mb-12 leading-6	 md:w-6/12">
                         <p>I'm always open to new creative collaborations and would love to talk about potential projects you have in mind.</p>
                     </div>
@@ -57,15 +43,14 @@ const Contact: NextPage = () => {
                         <p >Don't hesitate to get in touch, even if it's just say hello. I'm  always happy to help</p>
                     </div>
                     <div className="w-80 md:w-6/12 lg:w-5/12">
-                        <form onSubmit={sendContact} id="form">
-                            <div className={`flex   mt-12    w-full`}>
+                        <form onSubmit={sendContact}>
+                            <div className={`flex mt-12 w-full`}>
                                 <div className=" peer flex flex-col relative w-full">
                                     <input
-                                        required={true}
+                                        name="Name"
+                                        className={`peer p-2 bg-transparent placeholder-transparent  focus:outline-none  border-t-0 border-l-0 border-r-0  border border-[#576E92]`}
                                         onChange={(e) => { setName(e.target.value) }}
-                                        name="Name" title="Name"
-                                        placeholder="Name"
-                                        className={`peer  p-2 bg-transparent placeholder-transparent  focus:outline-none  border-t-0 border-l-0 border-r-0  border border-[#576E92]`} />
+                                        type="text" required />
                                     <label htmlFor='Name'
                                         className=" transition-all absolute left-2   text-sm text-gray opacity-50 -top-3 peer-focus:-top-3.5 peer-focus:text-xs
                                       peer-placeholder-shown:top-2   peer-placeholder-shown:text-red">
@@ -73,23 +58,23 @@ const Contact: NextPage = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className="flex   mt-12    w-full">
+                            <div className={`flex mt-12 w-full`}>
                                 <div className=" peer flex flex-col relative w-full">
                                     <input
+                                        title="Email"
                                         onChange={(e) => { setEmail(e.target.value) }}
-                                        required={true}
-                                        name="Email" title="Email"
-                                        type="email"
+                                        className={`peer p-2 bg-transparent placeholder-transparent  focus:outline-none  border-t-0 border-l-0 border-r-0  border border-[#576E92]`}
                                         placeholder="Email"
-                                        className={`peer  p-2 bg-transparent placeholder-transparent  focus:outline-none  border-t-0 border-l-0 border-r-0  border border-[#576E92]`} />
-                                    <label htmlFor='Email'
-                                        className="transition-all absolute left-2   text-sm text-gray opacity-50 -top-3 peer-focus:-top-3.5 peer-focus:text-xs
-                                          peer-placeholder-shown:top-2   peer-placeholder-shown:text-red">Email</label>
+                                        type="email" required />
+                                    <label htmlFor='email'
+                                        className=" transition-all absolute left-2   text-sm text-gray opacity-50 -top-3 peer-focus:-top-3.5 peer-focus:text-xs
+                                      peer-placeholder-shown:top-2   peer-placeholder-shown:text-red">
+                                        Email
+                                    </label>
                                 </div>
                             </div>
-
-                            <div className="flex mt-12">
-                                <div className="flex flex-col relative w-full">
+                            <div className={`flex mt-12 w-full`}>
+                                <div className=" peer flex flex-col relative w-full">
                                     <textarea
                                         onChange={(e) => { setMessage(e.target.value) }}
                                         name="Message"
@@ -107,7 +92,8 @@ const Contact: NextPage = () => {
                                     </label>
                                 </div>
                             </div>
-                            <button onClick={sendContact} style={{
+
+                            <button style={{
                                 boxShadow: "0px 58px 23px rgba(121, 113, 234, 0.01), 0px 32px 19px rgba(121, 113, 234, 0.05), 0px 14px 14px rgba(121, 113, 234, 0.09), 0px 4px 8px rgba(121, 113, 234, 0.1), 0px 0px 0px rgba(121, 113, 234, 0.1)"
                             }} className="  bg-[#576E92] h-14 w-52 mb-24 mt-5  relative">
 
@@ -121,13 +107,8 @@ const Contact: NextPage = () => {
                             </button>
                         </form>
                     </div>
-
-                </motion.div>
-
-            }
-
+                </motion.div>}
         </>
     )
 }
 export default Contact
-
