@@ -48,12 +48,8 @@ export default function Home() {
                 onClick={() => {
                   router.push("/work")
                 }}
-                initial={{
-                  opacity: 0
-                }}
-                animate={{
-                  opacity: 1
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
                   type: "spring",
                   duration: 0.5
@@ -70,24 +66,18 @@ export default function Home() {
                 onClick={() => {
                   router.push("/contact")
                 }}
-                initial={{
-                  opacity: 0
-                }}
+                initial={{ opacity: 0 }}
                 transition={{
                   type: "spring",
                   duration: 0.5
                 }}
-                animate={{
-                  opacity: 1
-                }}
+                animate={{ opacity: 1 }}
                 whileHover={{
                   skewY: 3,
                   scale: 1.1,
                   boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
                 }}
-
-                className="border bg-transparent border-[#0B1727] h-14 w-52"
-                style={{}}>
+                className="border bg-transparent border-[#0B1727] h-14 w-52">
                 <span className='text-[#0B1727] font-Poppins'>Let's Talk</span></motion.button>
             </div>
           </div>
@@ -97,7 +87,6 @@ export default function Home() {
 
 
             <Button onClick={() => {
-              console.log("on click")
             }} className="bg-[#324670]" color='' Title={'About Me'} />
           </div>
           <div className="mt-3 mb-24 ">
@@ -135,15 +124,12 @@ export default function Home() {
             </div>
           </section>
           <Button onClick={() => {
-            console.log("onClick event")
           }} color={''} className="h-14 w-52 p-3  bg-[#F26527]" Title={'View More'} />
 
           <motion.div className='flex flex-col items-center mb-14'
             transition={{ staggerChildren: 0.05 }}>
             <motion.h1
-              whileHover={{
-                scale: 1.1
-              }}
+              whileHover={{ scale: 1.1 }}
               className="text-3xl lg:text-4xl mb-1 relative text-[#2E435F] font-bold mt-14 ">Happy clients</motion.h1>
 
             <motion.div className='grid lg:grid-cols-6 lg:gap-14 gap-2 p-5 grid-cols-3   place-items-center place-content-center'>
@@ -183,14 +169,8 @@ export default function Home() {
               className=" rounded-full w-52  h-52 m-auto relative mt-10 cursor-pointer mb-10">
 
               <motion.h1
-                initial={{
-                  opacity: 0,
-                  top: 0
-                }}
-                whileInView={{
-                  opacity: 1,
-                  top: "5rem"
-                }}
+                initial={{ opacity: 0, top: 0 }}
+                whileInView={{ opacity: 1, top: "5rem" }}
                 transition={{
                   type: "spring",
                   damping: 12,
@@ -199,8 +179,6 @@ export default function Home() {
                 }}
                 className="absolute  whitespace-nowrap  text-[#626f8a]  capitalize  -left-[0.6rem]  text-5xl">Let's Talk</motion.h1>
             </motion.div>
-
-
           </motion.div>
         </div>
       </div>

@@ -72,28 +72,17 @@ const ProjectImage = (props: ProjectImageProps) => {
                 justify-center items-center mt-14 mb-24 ${props.reverse ? "flex-row-reverse" : "flex-row"}`} >
                 <motion.div
                     key={props.ProjectName}
-                    initial={{
-                        opacity: 0,
-                        WebkitMaskImage: hiddenMask
-                    }}
+                    initial={{ opacity: 0, WebkitMaskImage: hiddenMask }}
 
-                    whileInView={{
-                        WebkitMaskImage: visibleMask, opacity: 1
-                    }}
+                    whileInView={{ WebkitMaskImage: visibleMask, opacity: 1 }}
                     animate={{ opacity: 1 }}
-                    transition={{
-                        duration: 0.4
-                    }}
+                    transition={{ duration: 0.4 }}
                     className="relative overflow-hidden" variants={Hover} whileHover="image">
                     <motion.div
                         key={props.Role}
-                        initial={{
-                            opacity: 1
-                        }}
+                        initial={{ opacity: 1 }}
 
-                        animate={{
-                            opacity: hoverImage.length ? 0.5 : 1
-                        }}
+                        animate={{ opacity: hoverImage.length ? 0.5 : 1 }}
                         onHoverEnd={() => {
                             setHoverImage('')
                             setHoverIndex((prev) => {
@@ -106,38 +95,24 @@ const ProjectImage = (props: ProjectImageProps) => {
                             })
                         }}
 
-                        whileHover={{
-                            opacity: 0.5,
-                        }}
+                        whileHover={{ opacity: 0.5 }}
                         className="relative" style={{ opacity: 0.5 }}>
 
                         {props.comingSoon ?
-                            <Image
-                                style={{ height: "auto", width: "auto" }}
+                            <Image style={{ height: "auto", width: "auto" }}
                                 src={"/companies/coming.png"} alt={props.ProjectName} width={800} height={100} className={`object-cover p-2  relative z-88 `} quality={100} priority />
                             :
                             <motion.div
-                                initial={{
-                                    opacity: 0
-                                }}
-                                animate={{
-                                    opacity: 1,
-                                    scale: hoverImage.length > 0 ? 1.1 : 1
-                                }}
-                                transition={{
-                                    duration: 0.5
-                                }}>
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, scale: hoverImage.length > 0 ? 1.1 : 1 }}
+                                transition={{ duration: 0.5 }}>
                                 <Image style={{ height: "auto", width: "auto" }} src={hoverImage ? hoverImage : props.CompanyImage} alt={props.ProjectName} width={800} height={100}
                                     className="project-image object-cover p-2  relative z-88 " quality={100} priority />
                             </motion.div>}
                     </motion.div>
                     <motion.div
-                        initial={{
-                            opacity: hoverIndex === -1 ? 0 : 1
-                        }}
-                        animate={{
-                            opacity: hoverIndex !== -1 ? 1 : 0
-                        }}
+                        initial={{ opacity: hoverIndex === -1 ? 0 : 1 }}
+                        animate={{ opacity: hoverIndex !== -1 ? 1 : 0 }}
                         key={props.index + "__" + props.ProjectName} className="relative  max-[500px]:hidden">
                         {props.hoverImage ? props.hoverImage.map((image, index) => {
                             const top = (180 + index) + (index * 50);
@@ -153,32 +128,23 @@ const ProjectImage = (props: ProjectImageProps) => {
                                     }}
                                     style={{ left: left + "px", top: -top + "px", height: "7rem" }}
                                     key={image + "__" + index}
-                                    variants={popImage} initial={{
-                                        opacity: 0,
-                                        scale: 1
-                                    }}
-                                    animate={{
-                                        opacity: hoverIndex === index ? 1 : 0.8
-                                    }}
+                                    variants={popImage} initial={{ opacity: 0, scale: 1 }}
+                                    animate={{ opacity: hoverIndex === index ? 1 : 0.8 }}
                                     transition={{
                                         type: "spring",
                                         damping: 12,
                                         stiffness: 200,
                                         duration: 1,
                                     }}
-                                    whileHover={{
-                                        scale: hoverIndex === index ? 2 : 1,
-                                        opacity: hoverIndex === index ? 1 : 0.9
-                                    }}
+                                    whileHover={{ scale: hoverIndex === index ? 2 : 1, opacity: hoverIndex === index ? 1 : 0.9 }}
                                     className={`absolute  -z-10 bottom-0  w-[200px] h-[200px]`}>
                                     <Image
                                         style={{ height: "auto", width: "auto" }}
                                         src={props.comingSoon ? "/companies/coming.png" : image} alt={props.ProjectName} width={800} height={100} className={`   object-cover p-2  relative z-88 `} quality={100} priority />
-                                        </motion.div>
+                                </motion.div>
                             )
                         }) : null}
                     </motion.div>
-
                 </motion.div>
                 <motion.div
                     key={props.ProjectName + "__" + props.Year}
@@ -213,17 +179,9 @@ const ProjectImage = (props: ProjectImageProps) => {
                             scale: 1.1,
                             boxShadow: "0px 87px 35px rgba(11, 23, 39, 0.01), 0px 49px 29px rgba(11, 23, 39, 0.05), 0px 22px 22px rgba(11, 23, 39, 0.09), 0px 5px 12px rgba(11, 23, 39, 0.1), 0px 0px 0px rgba(11, 23, 39, 0.1)"
                         }}
-                        initial={{
-                            background: props.buttonColor,
-                            left: "-100vw"
-                        }}
-                        animate={{
-                            left: 0,
-                        }}
-                        transition={{
-                            type: "spring",
-                            duration: 0.5
-                        }}
+                        initial={{ background: props.buttonColor, left: "-100vw" }}
+                        animate={{ left: 0 }}
+                        transition={{ type: "spring", duration: 0.5 }}
                         className="relative  h-12 w-40 p-3  mt-14"><span className="font-Poppins  text-white">{props.comingSoon ? "In-Development" : "View"}</span></motion.button>
                 </motion.div>
             </div>

@@ -197,7 +197,7 @@ const WorkDetails = () => {
                             {project?.workImages.map((project, index) => (
                                 <motion.div
                                     className="container"
-                                    key={index +"_____" + project.slice(0,2)}
+                                    key={index + "_____" + project.slice(0, 2)}
                                     initial={{ scale: 0, rotate: -180 }}
                                     animate={{
                                         rotate: 0,
@@ -209,21 +209,21 @@ const WorkDetails = () => {
                                         stiffness: 260,
                                         damping: 20
                                     }}>
-                                    <img alt={project} key={project} src={project} className="object-contain"/>
+                                    <img alt={project} key={project} src={project} className="object-contain" />
                                 </motion.div>
                             ))}
                         </div>
-                                </div> 
+                    </div>
 
 
 
-                </div> 
+                </div>
                 {/* image company mobile*/}
                 <div className="min-[1200px]:hidden">
                     <div className="mt-14  w-full ">
                         {project?.workImages.map((project, index) => (
-                            <div className="mb-24" key={project + "__" +index}>
-                                <ImageComponent key={project + "__" + index}  src={project} name={"ALSLE ROCKET"} index={index} />
+                            <div className="mb-24" key={project + "__" + index}>
+                                <ImageComponent key={project + "__" + index} src={project} name={"ALSLE ROCKET"} index={index} />
                             </div>
                         ))}
                     </div>

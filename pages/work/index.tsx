@@ -139,9 +139,9 @@ const Work: NextPage = () => {
                                     <Word index={index} word={data.description} currentporjectposition={position} />
                                 </motion.div>
                                 <motion.button
-                                onClick={()=>{
-                                    router.push(`/work/${data.name}`)
-                                }}
+                                    onClick={() => {
+                                        router.push(`/work/${data.name}`)
+                                    }}
                                     style={{ cursor: data.comingSoon ? "not-allowed" : "pointer", }}
                                     disabled={data.comingSoon}
                                     whileHover={{
