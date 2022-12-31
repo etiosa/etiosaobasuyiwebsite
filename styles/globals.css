@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-family: Poppins;
     background: #EFF1F3;
-    -ms-overflow-style: none;  /* IE and Edge */
+    -ms-overflow-style: none;  
     scrollbar-width: none;  
     height:100vh;
     font-family:Poppins;
@@ -27,7 +27,7 @@ a {
 }
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent; 
 }
 
 
@@ -44,14 +44,13 @@ opacity:1 !important;
 opacity:0 ;
 }
 .App {
-  width: 85vw;
+  width: 75vw;
     height: 60vh;
     overflow: hidden;
     padding: 0px;
     margin: 0px;
     display: flex;
     justify-content: center;
-    /* align-items: center;*/
 }
 
 .row {
@@ -61,9 +60,7 @@ opacity:0 ;
 .container {
   position: absolute;
     width: 60vw;
-    /* height: 90vh; */
     overflow: hidden;
-    /* top: -45vh;*/
 }
 .container > img {
   height: auto;

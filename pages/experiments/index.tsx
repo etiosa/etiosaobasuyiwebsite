@@ -1,16 +1,19 @@
 import { NextPage } from "next/types"
-import React, { useRef ,useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "../../styles/Home.module.css"
+import Text from "../../components/Animation/Text";
 
 const Experiments: NextPage = () => {
-    const ref = useRef(null);
-    useEffect(() => {
-        import("@lottiefiles/lottie-player");
-      });
-    return (
-        <div className={styles.container}>
-   <main className={styles.main}>
-   <h2>Coming Soon</h2>
+  const ref = useRef(null);
+  useEffect(() => {
+    import("@lottiefiles/lottie-player");
+  });
+  return (
+    <div className={styles.container}>
+      <main className={styles.main}>
+      <div className="mt-24">
+        <Text duration={0.1} delay={0.5} className="text-3xl font-bold  uppercase text-[#2E435F]" text={"In Development"} />
+        </div>
 
         <lottie-player
           id="firstLottie"
@@ -23,6 +26,6 @@ const Experiments: NextPage = () => {
         ></lottie-player>
       </main>
     </div>
-    )
+  )
 }
 export default Experiments

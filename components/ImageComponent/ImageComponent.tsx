@@ -16,7 +16,7 @@ const ImageComponent = (props: IImageComponentProps) => {
 
     return (
         <motion.div
-            key={props.name + "__" + props.index}
+            key={props.name + "__" + props.index + "__" +props.index}
             initial={{
                 opacity: 0,
                 WebkitMaskImage: hiddenMask

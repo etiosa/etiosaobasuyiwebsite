@@ -17,20 +17,24 @@ function Nav() {
         className="bg-{#DCE0E6]   text-[#78797A]  font-Poppins   mt-10 relative z-40  w-96  md:w-11/12 flex items-center  justify-evenly	 ">
         
         <motion.li className={` relative p-5 text-sm ${router.pathname === "/" ? "text-active flex justify-center text-sm" : ""}`}>
-            <Link href="/work" className={router.pathname === "/" ? "font-bold" : ""} >Etiosa Obasuyi</Link>
+            <Link href="/" className={router.pathname === "/" ? "font-bold" : ""} >Etiosa Obasuyi</Link>
             {router.pathname === "/" ?
               <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute  bottom-3'></motion.div> :
               null}
           </motion.li>
           
-          <motion.li className={` relative p-5 text-sm ${router.pathname === "/work" ? "text-active flex justify-center text-sm" : ""}`}>
-            <Link href="/work" className={router.pathname === "/work" ? "font-bold" : ""} >Work</Link>
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/work" ? "text-active text-lg flex justify-center text-sm" : ""}`}>
+          <span   className={`absolute -top-1 text-xs ${router.pathname === "/work"?"text-[#7971EA]":"text-[#2E435F]"}`}>01/</span>
+
+            <Link href="/work" className={router.pathname === "/work" ? "font-bold" : ""} ><span className='text-lg'>Work</span></Link>
             {router.pathname === "/work" ?
               <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute  bottom-3'></motion.div> :
               null}
           </motion.li>
 
-          <motion.li className={` relative p-5 text-sm ${router.pathname === "/about" ? "text-active flex justify-center" : ""}`}>
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/about" ? "text-active text-lg flex justify-center" : ""}`}>
+          <span  className={`absolute -top-1 text-xs ${router.pathname === "/about"?"text-[#7971EA]":"text-[#2E435F]"}`}>02/</span>
+
             <Link href="/about" className={router.pathname === "/about" ? "font-bold" : ""} >About</Link>
             {router.pathname === "/about" ?
               <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
@@ -38,13 +42,17 @@ function Nav() {
           </motion.li>
 
           
-          <motion.li className={` relative p-5 text-sm ${router.pathname === "/contact" ? "text-active flex justify-center" : ""}`}>
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/contact" ? "text-active  text-lg flex justify-center" : ""}`}>
+          <span  className={`absolute -top-1 text-xs ${router.pathname === "/contact"?"text-[#7971EA]":"text-[#2E435F]"}`}>03/</span>
+
             <Link href="/contact" className={router.pathname === "/contact" ? "font-bold" : ""}>Contact</Link>
             {router.pathname === "/contact" ?
               <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
               null}
           </motion.li>
-          <motion.li className={` relative p-5 text-sm ${router.pathname === "/blog" ? "text-active flex justify-center" : ""}`}>
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/blog" ? "text-active  text-lg flex justify-center" : ""}`}>
+          <span   className={`absolute -top-1 text-xs ${router.pathname === "/blog"?"text-[#7971EA]":"text-[#2E435F]"}`}>04/</span>
+
             <Link href="/contact" className={router.pathname === "/blog" ? "font-bold" : ""}>Blog</Link>
             {router.pathname === "/blog" ?
               <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :
@@ -52,7 +60,9 @@ function Nav() {
           </motion.li>
 
 
-          <motion.li className={` relative p-5 text-sm ${router.pathname === "/experiment" ? "text-active flex justify-center" : ""}`}>
+          <motion.li className={` relative p-5 text-sm ${router.pathname === "/experiment" ? "text-active text-lg flex justify-center" : ""}`}>
+          <span   className={`absolute -top-1 text-xs ${router.pathname === "/experiment"?"text-[#7971EA]":"text-[#2E435F]"}`}>05/</span>
+
             <Link href="/contact" className={router.pathname === "/experiment" ? "font-bold" : ""}>Experiment</Link>
             {router.pathname === "/experiment" ?
               <motion.div style={{ boxShadow: "0px 4px 4px rgba(121, 113, 234, 0.41)" }} className='bg-activebg w-20 h-1.5 absolute bottom-3'></motion.div> :

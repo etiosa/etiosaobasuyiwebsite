@@ -18,6 +18,7 @@ const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
 const Work: NextPage = () => {
+    const router = useRouter()
     const [position, setPosition] = useState(0)
     const [scrollposition, setScrollPosition] = useState(0)
     const [distance, setDistance] = useState(-10)
@@ -138,6 +139,9 @@ const Work: NextPage = () => {
                                     <Word index={index} word={data.description} currentporjectposition={position} />
                                 </motion.div>
                                 <motion.button
+                                onClick={()=>{
+                                    router.push(`/work/${data.name}`)
+                                }}
                                     style={{ cursor: data.comingSoon ? "not-allowed" : "pointer", }}
                                     disabled={data.comingSoon}
                                     whileHover={{

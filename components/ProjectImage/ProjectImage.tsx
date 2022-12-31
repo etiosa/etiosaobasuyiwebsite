@@ -174,8 +174,7 @@ const ProjectImage = (props: ProjectImageProps) => {
                                     <Image
                                         style={{ height: "auto", width: "auto" }}
                                         src={props.comingSoon ? "/companies/coming.png" : image} alt={props.ProjectName} width={800} height={100} className={`   object-cover p-2  relative z-88 `} quality={100} priority />
-
-                                </motion.div>
+                                        </motion.div>
                             )
                         }) : null}
                     </motion.div>
@@ -183,12 +182,12 @@ const ProjectImage = (props: ProjectImageProps) => {
                 </motion.div>
                 <motion.div
                     key={props.ProjectName + "__" + props.Year}
-                    className='max-[1200px]:overflow-hidden   p-5 left-3  max-[900px]:w-[90vw]  lg:w-2/5 xl:w-4/12 relative' variants={onView}>
+                    className='max-[1200px]:overflow-hidden   p-5 left-3  max-[900px]:w-[100vw]  lg:w-6/12 xl:w-4/12 relative' variants={onView}>
                     <motion.h3
                         variants={onView}
                         initial="init"
                         whileInView="whileOnView"
-                        className=' relative text-4xl font-bold ' style={{ color: props.titleColor }}>{props.ProjectName}</motion.h3>
+                        className='relative text-4xl font-bold ' style={{ color: props.titleColor }}>{props.ProjectName}</motion.h3>
                     <motion.h5
                         variants={onView}
                         initial="init"
@@ -206,8 +205,8 @@ const ProjectImage = (props: ProjectImageProps) => {
 
                         className='relative lg:w-full md:w-10/12 leading-7 mt-5 sm:text-lg' style={{ color: props.color }}>{props.Description}</motion.p>
                     <motion.button
-                      disabled={props.comingSoon}
-                      style={{ cursor: props.comingSoon ? "not-allowed" : "pointer", }}
+                        disabled={props.comingSoon}
+                        style={{ cursor: props.comingSoon ? "not-allowed" : "pointer", }}
 
                         whileHover={{
                             skewY: 3,

@@ -33,7 +33,7 @@ const Contact: NextPage = () => {
     return (
         <>
             {isDone ?
-                <div className="m-auto block w-full mt-96 relative text-center text-4xl uppercase font-bold text-[#0B1727] whitespace-nowrap">
+                <div className="m-auto block w-full mt-96 max-[900px]:mt-32 relative text-center text-4xl max-[500px]:text-2xl uppercase font-bold text-[#0B1727] whitespace-nowrap">
                     <span>Thank your inquries!</span></div> :
                 <motion.div className="relative  flex flex-col w-full  font-Poppins  items-center justify-items-center mt-32">
                     <div className="w-96  lg:w-5/12 p-3 text-sm text-[#2E435F] mb-12 leading-6	 md:w-6/12">

@@ -11,6 +11,7 @@ function Layout({ children }: any) {
 
   //curosor here
   useEffect(() => {
+    console.log("useEffect")
     const cursor = (event: any) => {
       console.log()
       if (mouseCurouser) {
@@ -99,23 +100,25 @@ function Layout({ children }: any) {
         },
         animateState: {
           opacity: 1,
-          clipPath: "circle(141.1% at 0 0)",
+          clipPath: "circle(200% at 0 0)",
         },
         exitState: {
           opacity: 1,
 
         },
-      }}
-
-    >
+      }}>
       <Navigation />
+      <div
+        className='cursor fixed overflow-hidden border-2  w-14 h-14 rounded-full text-center  '>
+        <div ref={cursors} className="outter  w-5 h-5 relative  top-4 left-4  rounded-full transition-all duration-500	 ">
+        </div>
+        <span className=' outterText relative  font-bold text-lg font-Poppins text-hide'>View</span>
+        </div>
       <Line />
-      <main >
+      <main>
         {children}
-
-      </main>
-
-    </motion.div>
+        </main>
+        </motion.div>
     </>
 
 
@@ -123,39 +126,4 @@ function Layout({ children }: any) {
   )
 }
 
-
 export default Layout
-/*  <Line />
-
- variants={{
-            initialState: {
-              opacity: 0,
-              clipPath: "circle(0.2% at 0 0)",
-            },
-            animateState: {
-              opacity: 1,
-              clipPath: "circle(141.1% at 0 0)",
-            },
-            exitState: {
-                opacity:1,
-            
-            },
-          }}
-
-
-          
-
-linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)
-<div
-
-
-                    className='cursor fixed overflow-hidden border-2  w-14 h-14 rounded-full text-center  '>
-                    <div ref={cursors} className="outter  w-5 h-5 relative  top-4 left-4  rounded-full transition-all duration-500	 ">
-                    </div>
-                    <span className=' outterText relative  font-bold text-lg font-Poppins text-hide'>View</span>
-
-
-
-                </div>
-
-*/

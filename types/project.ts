@@ -13,7 +13,7 @@ export const projects = [
     id: "third",
     background:
       "conic-gradient(from 186.4deg at 55.15% 54.06%, #FFFFFF -153.3deg, rgba(241, 88, 46, 0.2) 63.75deg, #FFFFFF 206.7deg, rgba(241, 88, 46, 0.2) 423.75deg)",
-    name: "ALSLE ROCKET",
+    name: "ALSLEROCKET",
     year: "2022",
     titleColor: "#A7123C",
     buttonColor: "#F04778",
@@ -65,7 +65,7 @@ export const projects = [
       "/companies/morjoy/MorJoy_home.png",
       "/companies/morjoy/MorJoy_product.png",
     ],
-    name: "MORJOY CANDLES",
+    name: "MORJOYCANDLES",
     comingSoon: false,
     logo: "/companies/logo/Morjoy.png",
     CompanyImage: "/companies/MorJoy_Candles.png",
