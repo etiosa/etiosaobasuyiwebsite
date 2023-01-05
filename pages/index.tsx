@@ -30,6 +30,11 @@ export default function Home() {
           <meta name="og:type" content='website' />
           <meta name='og:url' content='https://etiosaobasuyi.com/' />
           <meta name="og:title" content='Etiosa Obasuyi | Front - End Developer & UI/UX designer' />
+          <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+          <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+          <link rel='android-chrome' type='image/png' sizes='192x192' href='/android-chrome-192x192.png' />
+          <link rel='android-chrome' type='image/png' sizes='512x512' href='/android-chrome-192x192.png' />
+
         </Head>
         <div className={styles.main}>
           <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center relative mt-14 min-[500px]:mt-24'>
