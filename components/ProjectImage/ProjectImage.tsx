@@ -85,7 +85,7 @@ const ProjectImage = (props: ProjectImageProps) => {
                         animate={{ opacity: hoverImage.length ? 0.5 : 1 }}
                         onHoverEnd={() => {
                             setHoverImage('')
-                            setHoverIndex((prev) => {
+                            setHoverIndex(() => {
                                 return -1;
                             })
                         }}

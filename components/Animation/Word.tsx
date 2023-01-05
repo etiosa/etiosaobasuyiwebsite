@@ -58,10 +58,7 @@ const Word = ({ word,
             className={props.className}
             variants={container}
             initial={props.index === props.currentporjectposition ? "hidden" : ""}
-            animate={props.index === props.currentporjectposition ? "visible" : "hidden"}
-
-
-        >
+            animate={props.index === props.currentporjectposition ? "visible" : "hidden"}>
 
             {words.map((letter, index) => {
                 return (
@@ -71,13 +68,8 @@ const Word = ({ word,
                     </motion.p>
                 )
             })}
-
-
-
-        </motion.div>
+            </motion.div>
     )
-
-
 }
 
 

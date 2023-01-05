@@ -2,11 +2,9 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { motion } from "framer-motion"
 import Word from '../components/Animation/Word';
-import Text from '../components/Animation/Text';
 import { projects } from "../types/project"
 import ProjectImage from '../components/ProjectImage/ProjectImage';
 import { useRouter } from "next/router";
-import Image from 'next/image'
 import { Logo } from "../types/project"
 import { Button } from '../components/Button/Button';
 import LogoComponent from '../components/Logos/Logos';
