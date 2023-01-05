@@ -20,8 +20,20 @@ function MobileNav() {
       return !prev;
     })
   }
-//TODO: fix the hidden issue
   useEffect(() => {
+
+    addEventListener("resize", () => {
+      if (screen.orientation.type === "landscape-primary") {
+        document.body.style.overflow = "auto"
+        setOpen(false)
+      }
+      else if (screen.orientation.type === "portrait-primary" && isOpen) {
+        setOpen(true)
+        document.body.style.overflow = "hidden"
+      }
+
+    });
+
     if (!isOpen) {
       document.body.style.overflow = "auto"
     }
