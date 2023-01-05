@@ -76,7 +76,7 @@ export default function Home() {
                 <span className='text-[#0B1727] font-Poppins'>Let's Talk</span></motion.button>
             </div>
           </div>
-          <div className="w-10/12 md:w-10/12 lg:w-9/12 xl:w-7/12 sm:w-6/12 mt-48 flex flex-col justify-center items-center max-[500px]:items-start">
+          <div className="w-10/12 md:w-10/12 lg:w-10/12 xl:w-7/12 sm:w-6/12 mt-48 flex flex-col justify-center items-center max-[500px]:items-start">
             <Word textClassName='max-[600px]:text-sm' className="font-Poppins text-lg max-[500px]:text-xl text-[#2E435F] leading-12"
               word={`I am passionate about Technology and obsessed with learning.  I love working at the intersection of creativity and User-friendly interfaces.`} />
             <Button onClick={() => {
