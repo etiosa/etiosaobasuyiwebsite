@@ -67,7 +67,7 @@ const ProjectImage = (props: ProjectImageProps) => {
     const [hoverImage, setHoverImage] = useState('')
     const [hoverIndex, setHoverIndex] = useState(-1)
     return (
-        <div key={props.ProjectName + '__' + props.index} className="flex w-full justify-center items-center mt-14   lg:flex-row" id={props.id}>
+        <div key={props.ProjectName + '__' + props.index} className="flex w-full justify-center items-center mt-14 overflow-hidden  lg:flex-row" id={props.id}>
             <div key={props.ProjectName + "__" + props.Role + "__" + props.Year} className={`flex max-[1020px]:flex-col    
                 justify-center items-center mt-14 mb-24 ${props.reverse ? "flex-row-reverse" : "flex-row"}`} >
                 <motion.div
@@ -113,7 +113,7 @@ const ProjectImage = (props: ProjectImageProps) => {
                     <motion.div
                         initial={{ opacity: hoverIndex === -1 ? 0 : 1 }}
                         animate={{ opacity: hoverIndex !== -1 ? 1 : 0 }}
-                        key={props.index + "__" + props.ProjectName} className="relative  max-[500px]:hidden">
+                        key={props.index + "__" + props.ProjectName} className="relative  max-[600px]:hidden">
                         {props.hoverImage ? props.hoverImage.map((image, index) => {
                             const top = (180 + index) + (index * 50);
                             const left = (400 * index) + (index * 2)

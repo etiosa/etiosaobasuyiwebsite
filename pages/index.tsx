@@ -14,7 +14,6 @@ import LogoComponent from '../components/Logos/Logos';
 
 export default function Home() {
   const router = useRouter()
-
   return (
     <motion.div>
       <div className={styles.container}>
@@ -30,16 +29,14 @@ export default function Home() {
           <meta name='og:url' content='https://etiosaobasuyi.com/' />
           <meta name="og:title" content='Etiosa Obasuyi | Front - End Developer & UI/UX designer' />
         </Head>
-
         <div className={styles.main}>
-
           <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center relative mt-14 min-[500px]:mt-24'>
             <div>
               <div className="relative">
                 <Word className="font-Poppins leading-[3.5rem]	 text-[#2E435F] font-bold text-4xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
               </div>
               <div className=" mt-4 md:w-10/12 sm:w-96 ">
-                <Word className="font-Poppins leading-5 mt-14 text-[#2E435F] text-sm" word='I will help you design a Minimalistic, and intuitive user interface that will enthrall and  engage your users' />
+                <Word className="font-Poppins leading-8 mt-14 text-[#2E435F] text-sm" word='I will help you design a Minimalistic, and intuitive user interface that will enthrall and  engage your users' />
               </div>
             </div>
 
@@ -81,11 +78,9 @@ export default function Home() {
                 <span className='text-[#0B1727] font-Poppins'>Let's Talk</span></motion.button>
             </div>
           </div>
-          <div className="w-10/12 md:w-10/12 lg:w-9/12 xl:w-8/12 sm:w-6/12 mt-48 flex flex-col justify-center items-center max-[500px]:items-start">
-            <Word className="font-Poppins text-lg max-[500px]:text-xl text-[#2E435F] leading-12"
-              word={`Passionate about Technology and obess with learning. I love working at the intersection of creativity and User friendly interfaces`} />
-
-
+          <div className="w-10/12 md:w-10/12 lg:w-9/12 xl:w-7/12 sm:w-6/12 mt-48 flex flex-col justify-center items-center max-[500px]:items-start">
+            <Word textClassName='max-[600px]:text-sm' className="font-Poppins text-lg max-[500px]:text-xl text-[#2E435F] leading-12"
+              word={`I am passionate about Technology and obsessed with learning.  I love working at the intersection of creativity and User-friendly interfaces.`} />
             <Button onClick={() => {
             }} className="bg-[#324670]" color='' Title={'About Me'} />
           </div>

@@ -10,6 +10,7 @@ interface IWordProps {
     duration?: number,
     delay?: number,
     currentporjectposition?: number
+    textClassName?:string
 }
 
 
@@ -64,7 +65,7 @@ const Word = ({ word,
 
             {words.map((letter, index) => {
                 return (
-                    <motion.p className="text-md" style={{ display: "inline-block", marginRight: "0.3rem" }} variants={child}
+                    <motion.p className={`text-md ${props.textClassName}`}style={{ display: "inline-block", marginRight: "0.3rem" }} variants={child}
                         key={letter + '--' + index}>
                         {letter}
                     </motion.p>

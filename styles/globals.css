@@ -66,14 +66,6 @@ opacity:0 ;
   height: auto;
   width:100%;
 }
-.bg-animation{
- position:fixed;
- background:#EFF1F3;
- overflow:auto;
- animation: bg-animation .2s infinite;
-
-
-}
 
 
 
