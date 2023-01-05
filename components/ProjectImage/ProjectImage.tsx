@@ -148,7 +148,7 @@ const ProjectImage = (props: ProjectImageProps) => {
                 </motion.div>
                 <motion.div
                     key={props.ProjectName + "__" + props.Year}
-                    className='max-[1200px]:overflow-hidden   p-5 left-3  max-[900px]:w-[100vw]  lg:w-6/12 xl:w-4/12 relative' variants={onView}>
+                    className='max-[1200px]:overflow-hidden   p-5 left-3  max-[900px]:w-[100vw]  lg:w-10/12 xl:w-4/12 relative' variants={onView}>
                     <motion.h3
                         variants={onView}
                         initial="init"
