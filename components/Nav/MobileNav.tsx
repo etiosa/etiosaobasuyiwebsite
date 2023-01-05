@@ -63,13 +63,10 @@ function MobileNav() {
                 type: "spring",
                 stiffness: 260,
                 damping: 40,
-                duration: 2,
-
+                duration: 2
               }}
-
               style={{ boxShadow: ' 0px 14px 6px rgba(23, 25, 28, 0.01), 0px 8px 5px rgba(23, 25, 28, 0.05), 0px 4px 4px rgba(23, 25, 28, 0.09), 0px 1px 2px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)' }}
               className="h-2 w-16 mb-1 relative bg-[#7971EA]"></motion.div>
-
             <motion.div
               initial={{ rotate: 0 }}
               animate={{ rotate: isOpen ? -150 : 0 }}
@@ -79,18 +76,14 @@ function MobileNav() {
                 damping: 40,
                 duration: 2,
               }}
-
               style={{ boxShadow: " 0px 14px 6px rgba(23, 25, 28, 0.01), 0px 8px 5px rgba(23, 25, 28, 0.05), 0px 4px 4px rgba(23, 25, 28, 0.09), 0px 1px 2px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)" }}
               className="h-2 w-16 bg-[#7971EA]"></motion.div>
           </div>
         </motion.ul>
       </nav>
-
       <motion.div
         initial={{ opacity: 0, top: "-100rem" }}
-
         animate={{ opacity: 1, top: isOpen ? '10rem' : "-70rem" }}
-
         transition={{
           type: "spring",
           stiffness: 260,
@@ -101,7 +94,6 @@ function MobileNav() {
         className='flex min-[800px]:hidden bg-[#EFF1F3]  absolute w-full  h-screen justify-start  z-[900]  flex-col items-center'
         style={{ boxShadow: "0px 55px 22px rgba(23, 25, 28, 0.01), 0px 31px 19px rgba(23, 25, 28, 0.05), 0px 14px 14px rgba(23, 25, 28, 0.09), 0px 3px 8px rgba(23, 25, 28, 0.1), 0px 0px 0px rgba(23, 25, 28, 0.1)" }}
       >
-
         <motion.ul className='p-24'>
           <motion.li className={` mb-12 relative p-5 ${router.pathname === "/work" ? "text-active text-lg flex justify-center text-sm" : "text-[#2e435f59]"}`}>
             <span className={`absolute -top-1 text-xs ${router.pathname === "/work" ? "text-[#7971EA]" : "text-[#2e435f59]"}`}>01/</span>
@@ -111,19 +103,13 @@ function MobileNav() {
             <span className={`absolute -top-1 text-xs ${router.pathname === "/about" ? "text-[#7971EA]" : "text-[#2e435f59]"}`}>02/</span>
             <Link href="/about" className={router.pathname === "/about" ? "font-bold" : ""} ><span className='text-3xl'>About</span></Link>
           </motion.li>
-
           <motion.li className={` mb-12 relative p-5 text-sm ${router.pathname === "/contact" ? "text-active text-lg flex justify-center text-sm" : "text-[#2e435f59]"}`}>
             <span className={`absolute -top-1 text-xs ${router.pathname === "/contact" ? "text-[#7971EA]" : "text-[#2e435f59]"}`}>03/</span>
             <Link href="/contact" className={router.pathname === "/contact" ? "font-bold" : ""} ><span className='text-3xl'>Contact</span></Link>
           </motion.li>
-
           <motion.li className={`mb-12 relative p-5 text-sm ${router.pathname === "/blog" ? "text-active text-lg flex justify-center text-sm" : "text-[#2e435f59]"}`}>
             <span className={`absolute -top-1 text-xs ${router.pathname === "/blog" ? "text-[#7971EA]" : "text-[#2e435f59]"}`}>04/</span>
             <Link href="/blog" className={router.pathname === "/blog" ? "font-bold" : ""} ><span className='text-3xl'>Blog</span></Link>
-          </motion.li>
-          <motion.li className={`  mb-12 relative p-5 text-sm ${router.pathname === "/experiments" ? "text-active text-lg flex justify-center text-sm" : "text-[#2e435f59]"}`}>
-            <span className={`absolute -top-1 text-xs ${router.pathname === "/experiments" ? "text-[#7971EA]" : "text-[#2e435f59]"}`}>05/</span>
-            <Link href="/experiments" className={router.pathname === "/experiments" ? "font-bold" : ""} ><span className='text-3xl'>Experiment</span></Link>
           </motion.li>
         </motion.ul>
       </motion.div>
