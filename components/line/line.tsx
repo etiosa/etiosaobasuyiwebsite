@@ -15,11 +15,7 @@ function Line(){
             <div className="bg-[#e5e9f1] h-screen w-[0.34px]"></div>
             <div className="bg-[#e5e9f1] h-screen w-[0.34px]"></div>
             <div className="bg-[#e5e9f1] h-screen w-[0.34px]"></div>
-            <div className="bg-[#e5e9f1] h-screen w-[0.34px]"></div>
-
-       
-
-        </div>
+            <div className="bg-[#e5e9f1] h-screen w-[0.34px]"></div></div>
             
         </>
     )

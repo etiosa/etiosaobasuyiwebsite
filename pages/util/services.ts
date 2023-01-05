@@ -1,8 +1,6 @@
 import { addDoc, collection, firestore } from "./firebase";
 
 const sendContact = async (contact: any) => {
-  // console.log(isDone)
-  console.log(contact);
   try {
     const docRef = await addDoc(collection(firestore, "CONTACT"), {
       name: contact.name,

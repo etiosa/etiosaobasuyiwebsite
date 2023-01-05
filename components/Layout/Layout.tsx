@@ -5,8 +5,6 @@ import { useRouter } from 'next/router'
 
 function Layout({ children }: any) {
   const router = useRouter()
-
-
   return (
     <>
       <motion.div
@@ -28,7 +26,8 @@ function Layout({ children }: any) {
           },
           exitState: { opacity: 1, },
         }}>
-        <Navigation />
+          {router.pathname ==="/work/[pid]"?null: <Navigation />}
+       
         <Line />
         <main>
           {children}

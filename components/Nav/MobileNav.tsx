@@ -20,7 +20,7 @@ function MobileNav() {
       return !prev;
     })
   }
-
+//TODO: fix the hidden issue
   useEffect(() => {
     if (!isOpen) {
       document.body.style.overflow = "auto"

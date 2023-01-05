@@ -8,8 +8,6 @@ interface ILinkComponentProps {
     backgroundColor?: string
 
 }
-
-
 const LinkComponent = (props: ILinkComponentProps) => {
     return (
         <motion.a

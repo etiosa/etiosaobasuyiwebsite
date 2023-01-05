@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Image from 'next/image'
+import { useRouter } from "next/router";
 import { useState } from "react"
 
 
@@ -64,6 +65,7 @@ const onView = {
 }
 
 const ProjectImage = (props: ProjectImageProps) => {
+    const router = useRouter()
     const [hoverImage, setHoverImage] = useState('')
     const [hoverIndex, setHoverIndex] = useState(-1)
     return (
@@ -171,6 +173,10 @@ const ProjectImage = (props: ProjectImageProps) => {
 
                         className='relative lg:w-full md:w-10/12 leading-7 mt-5 sm:text-lg' style={{ color: props.color }}>{props.Description}</motion.p>
                     <motion.button
+                    onClick={()=>
+                        router.push(`/work/${props.ProjectName}`)
+
+                    }
                         disabled={props.comingSoon}
                         style={{ cursor: props.comingSoon ? "not-allowed" : "pointer", }}
 
