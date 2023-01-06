@@ -14,7 +14,8 @@ const Contact: NextPage = () => {
         e.preventDefault();
         if (email.length > 0 && name.length > 0 || message.length > 0) {
             setSend(true)
-            const form = document.getElementById('form');
+            const form = document.getElementById('form') as HTMLFormElement ;
+            
             try {
                 await addDoc(collection(firestore, 'CONTACT'), {
                     name: name,
