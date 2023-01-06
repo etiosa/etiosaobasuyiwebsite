@@ -101,14 +101,14 @@ const ProjectImage = (props: ProjectImageProps) => {
                         className="relative" style={{ opacity: 0.5 }}>
 
                         {props.comingSoon ?
-                            <Image style={{ height: "auto", width: "auto" }}
+                            <Image
                                 src={"/companies/coming.png"} alt={props.ProjectName} width={800} height={100} className={`object-cover p-2  relative z-88 `} quality={100} priority />
                             :
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, scale: hoverImage.length > 0 ? 1.1 : 1 }}
                                 transition={{ duration: 0.5 }}>
-                                <Image style={{ height: "auto", width: "auto" }} src={hoverImage ? hoverImage : props.CompanyImage} alt={props.ProjectName} width={800} height={100}
+                                <Image  src={hoverImage ? hoverImage : props.CompanyImage} alt={props.ProjectName} width={800} height={100}
                                     className="project-image object-cover p-2  relative z-88 " quality={100} priority />
                             </motion.div>}
                     </motion.div>

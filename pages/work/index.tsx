@@ -172,7 +172,7 @@ const Work: NextPage = () => {
                                 }
                                 transition={{ duration: index !== position ? 0.4 : 0.5, delay: index !== position ? 0.3 : 0.2 }}>
                                 <Image src={data.comingSoon ? "/companies/coming.png" : data.CompanyImage} alt={data.name} width={800} height={100} className={`   
-                                 object-cover md:object-cover h-auto w-auto `} quality={100} priority />
+                                 object-cover md:object-cover  `} quality={100} priority />
                             </motion.div>
                         </motion.div>
                     )
@@ -234,7 +234,7 @@ const Work: NextPage = () => {
                                         stiffness: 50
                                     }}
                                     key={src.id + "___" + src.Role + "____" + src.name} className=" relative  m-auto text-center">
-                                    <Image priority style={{ width: 'auto', height: 'auto' }} src={src.logo} alt={src.name} width={100} height={60} className=" m-auto mt-1" />
+                                    <Image priority  src={src.logo} alt={src.name} width={100} height={60} className=" m-auto mt-1" />
 
                                     <motion.div
                                         key={src + "__" + index}

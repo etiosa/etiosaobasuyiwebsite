@@ -121,6 +121,7 @@ export default function Home() {
             </div>
           </section>
           <Button onClick={() => {
+            router.push("/work")
           }} color={''} className="h-14 w-52 p-3  bg-[#F26527]" Title={'View More'} />
 
           <motion.div className='flex flex-col items-center mb-14'

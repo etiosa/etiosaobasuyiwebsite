@@ -21,7 +21,7 @@ const LogoComponent = (Props: ILogoProps) => {
                 duration: 0.7
             }}
             key={Props.id + "__" + Props.companyName}>
-            <Image className="h-auto w-auto" width={80} height={90} src={Props.url} alt={Props.companyName} loading="lazy" />
+            <Image  width={150} height={90} src={Props.url} alt={Props.companyName} loading="lazy" />
         </motion.div>
     )
 
