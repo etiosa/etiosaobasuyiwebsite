@@ -13,7 +13,7 @@ import Head from "next/head";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const offset = 190;
+const offset = 180;
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
 
@@ -220,7 +220,7 @@ const Work: NextPage = () => {
                         <motion.div>
                         </motion.div>
 
-                        <div className="grid grid-cols-6 gap-14 items-center  place-content-center place-items-center w-full	 cursor-pointer  relative" >
+                        <div className="grid grid-cols-6 gap-20 items-center  place-content-center place-items-center w-full	 cursor-pointer  relative" >
                             {projects.map((src, index) => (
                                 <motion.div
                                     whileHover={{ scale: 1.1 }}
