@@ -7,9 +7,7 @@ import { useRouter } from "next/router";
 function MobileNav() {
   const router = useRouter();
   const [isOpen, setOpen] = useState(false)
-
   const handleMobileMenu = () => {
-
     setOpen((prev) => {
       if (prev) {
         document.body.style.overflow = "auto"
@@ -21,19 +19,6 @@ function MobileNav() {
     })
   }
   useEffect(() => {
-
-    addEventListener("resize", () => {
-      if (screen.orientation.type === "landscape-primary") {
-        document.body.style.overflow = "auto"
-        setOpen(false)
-      }
-      else if (screen.orientation.type === "portrait-primary" && isOpen) {
-        setOpen(true)
-        document.body.style.overflow = "hidden"
-      }
-
-    });
-
     if (!isOpen) {
       document.body.style.overflow = "auto"
     }
@@ -128,6 +113,5 @@ function MobileNav() {
     </div>
   )
 }
-
 export default MobileNav
 

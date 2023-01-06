@@ -21,7 +21,6 @@ const About: NextPage = () => {
           high-quality and unique product to my client, I follow a clear defined steps"  />
         <meta name="og:type" content='website' />
         <meta name='og:url' content='https://etiosaobasuyi.com/about' />
-
       </Head>
       <div className="flex flex-col  items-center  w-full justify-center relative mt-32 overflow-hidden">
         <div className="w-11/12  sm:w-7/12 md:w-9/12 lg:w-7/12 relative block   items-center mb-14 ">

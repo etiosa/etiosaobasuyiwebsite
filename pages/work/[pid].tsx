@@ -11,6 +11,7 @@ interface IProjectData {
     buttonColor?: string,
     titleColor: string,
     Role: string,
+    url?:string
     year: string,
     description: string,
     CompanyImage: string,
@@ -27,7 +28,7 @@ const WorkDetails = () => {
     const [isPrevHover, setPrevHover] = useState(false)
     const [position, setSpostion] = useState(0)
     const next = () => {
-        if (position < project?.workImages.length - 1) {
+        if (position < project?.workImages!.length - 1) {
             setSpostion(position + 1);
         }
     }
@@ -110,7 +111,8 @@ const WorkDetails = () => {
                     className="font-Poppins  sm:w-11/12 xl:w-9/12 lg:w-10/12 ">
                     {project?.description}
                 </motion.p>
-                <LinkComponent link="https://getaurox.com" name={"Visit"} backgroundColor={project?.buttonColor} />
+                <LinkComponent link={project?.url!} name={"Visit"} backgroundColor={project?.buttonColor} />
+                
                 <div className="flex max-[700px]:flex-col mt-14  sm:mt-0 justify-evenly  w-full  gap-36 max-[700px]:gap-36  min-[701px]:gap-4">
                     <motion.div
                         variants={titleContainer} initial="init" whileInView="whileonView"
@@ -220,7 +222,7 @@ const WorkDetails = () => {
                     </div>
                     <div className="App -ml-2  ">
                         <div className="row">
-                            {project?.workImages.map((project, index) => (
+                            {project?.workImages!.map((project, index) => (
                                 <motion.div
                                     className="container"
                                     key={index + "_____" + project.slice(0, 2)}
@@ -247,7 +249,7 @@ const WorkDetails = () => {
                 {/* image company mobile*/}
                 <div className="min-[1200px]:hidden">
                     <div className="mt-14  w-full ">
-                        {project?.workImages.map((project, index) => (
+                        {project?.workImages!.map((project, index) => (
                             <div className="mb-24" key={project + "__" + index}>
                                 <ImageComponent key={project + "__" + index} src={project} name={project} index={index} />
                             </div>

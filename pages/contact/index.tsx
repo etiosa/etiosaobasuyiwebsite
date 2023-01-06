@@ -103,7 +103,6 @@ const Contact: NextPage = () => {
                                     </label>
                                 </div>
                             </div>
-
                             <button style={{
                                 boxShadow: "0px 58px 23px rgba(121, 113, 234, 0.01), 0px 32px 19px rgba(121, 113, 234, 0.05), 0px 14px 14px rgba(121, 113, 234, 0.09), 0px 4px 8px rgba(121, 113, 234, 0.1), 0px 0px 0px rgba(121, 113, 234, 0.1)"
                             }} className="  bg-[#576E92] h-14 w-52 mb-24 mt-5  relative">

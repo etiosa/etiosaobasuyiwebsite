@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const Cta = () => {
+    const router = useRouter()
     return (
-        <motion.div className="text-[#2E435F] font-bold  relative mt-14">
+        <motion.div
+            onClick={() => { router.push("/contact") }}
+            className="text-[#2E435F] font-bold  relative mt-14">
             <motion.h1 className="text-3xl max-[500px]:text-2xl lg:text-4xl mb-5 relative uppercase"
                 initial={{ opacity: 0, top: "10rem" }}
                 whileInView={{ opacity: 1, top: 0 }}

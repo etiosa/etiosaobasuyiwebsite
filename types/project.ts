@@ -1,6 +1,6 @@
 export const projects = [
   {
-    url: "",
+    url: "https://www.aislerocket.com",
     workImages: [
       "/companies/aisle/AISLE_HOME.png",
       "/companies/aisle/Aisel_market.png",
@@ -28,7 +28,7 @@ export const projects = [
       "linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(242, 101, 39, 0.1) 100%)",
   },
   {
-    url: "",
+    url: "https://getaurox.com",
     comingSoon: false,
     workImages: [
       "/companies/aurox/Aurox_home.png",
@@ -57,7 +57,7 @@ export const projects = [
       " conic-gradient(from 12.23deg at 54.33% 52.5%, #FFFFFF -142.11deg, rgba(40, 58, 94, 0.2) 120.95deg, #FFFFFF 217.89deg, rgba(40, 58, 94, 0.2) 480.95deg)",
   },
   {
-    url: "/companies/Malith_AB Logo (1)-01 (2) 2.png ",
+    url: "https://www.morjoycandles.com",
     color: "#772406",
     id: "first",
     workImages: [
