@@ -16,6 +16,7 @@ function Layout({ children }: any) {
 
     </Head>
       <motion.div
+    
         key={router.route}
         initial="initialState"
         animate="animateState"

@@ -10,12 +10,11 @@ import { Button } from '../components/Button/Button';
 import LogoComponent from '../components/Logos/Logos';
 import Cta from '../components/cta/Cta';
 
-
 export default function Home() {
   const router = useRouter()
   return (
     <motion.div>
-      <div className={styles.container}>
+      <div className={styles.container +"    dark:bg-[#DCE0E6]"}>
         <Head>
           <title>Etiosa Obasuyi | Front - End Developer & UI/UX designer </title>
           <meta name="description" content="A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE. 
@@ -35,7 +34,7 @@ export default function Home() {
           <div className='flex flex-col w-80 sm:w-96 md:w-10/12 md:items-center relative mt-14 min-[500px]:mt-24'>
             <div>
               <div className="relative">
-                <Word className="font-Poppins leading-[3.5rem]	 text-[#2E435F] font-bold text-4xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
+                <Word className="font-Poppins leading-[3.5rem] dark:text-[#0B1727]	 text-[#2E435F] font-bold text-4xl" word='A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE' />
               </div>
               <div className=" mt-4 md:w-10/12 sm:w-96 ">
                 <Word className="font-Poppins leading-8 mt-14 text-[#2E435F] text-sm" word='I will help you design a Minimalistic, and intuitive user interface that will enthrall and  engage your users' />

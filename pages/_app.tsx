@@ -5,12 +5,13 @@ import { AnimatePresence } from "framer-motion"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AnimatePresence mode="sync">
-      <Layout>
-        <Component {...pageProps} />
+      <AnimatePresence mode="sync" >
+
+        <Layout>
+          <Component {...pageProps} />
         </Layout>
 
-    </AnimatePresence>
+      </AnimatePresence>
   )
 }
 
