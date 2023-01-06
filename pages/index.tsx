@@ -84,6 +84,7 @@ export default function Home() {
             <Word textClassName='max-[600px]:text-sm' className="font-Poppins text-lg max-[500px]:text-xl text-[#2E435F] leading-12"
               word={`I am passionate about Technology and obsessed with learning.  I love working at the intersection of creativity and User-friendly interfaces.`} />
             <Button onClick={() => {
+              router.push("/about")
             }} className="bg-[#324670]" color='' Title={'About Me'} />
           </div>
           <div className="mt-3 mb-24 ">
