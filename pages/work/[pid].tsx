@@ -11,7 +11,7 @@ interface IProjectData {
     buttonColor?: string,
     titleColor: string,
     Role: string,
-    url?:string
+    url?: string
     year: string,
     description: string,
     CompanyImage: string,
@@ -28,7 +28,7 @@ const WorkDetails = () => {
     const [isPrevHover, setPrevHover] = useState(false)
     const [position, setSpostion] = useState(0)
     const next = () => {
-        if (position < project?.workImages!.length - 1) {
+        if (position < project!.workImages!.length - 1) {
             setSpostion(position + 1);
         }
     }
@@ -112,14 +112,14 @@ const WorkDetails = () => {
                     {project?.description}
                 </motion.p>
                 <LinkComponent link={project?.url!} name={"Visit"} backgroundColor={project?.buttonColor} />
-                
+
                 <div className="flex max-[700px]:flex-col mt-14  sm:mt-0 justify-evenly  w-full  gap-36 max-[700px]:gap-36  min-[701px]:gap-4">
                     <motion.div
                         variants={titleContainer} initial="init" whileInView="whileonView"
                         style={{ background: project?.buttonColor }}
 
                         className=" w-8/12 max-[500px]:w-full h-1 relative left-1 ">
-                        <h2 style={{color: project?.titleColor}} className="font-bold font-Poppins text-sm mb-2 mt-2">Role</h2>
+                        <h2 style={{ color: project?.titleColor }} className="font-bold font-Poppins text-sm mb-2 mt-2">Role</h2>
                         <h5 style={{ color: project?.color }}
                             className="top-5 p-1 text-md  whitespace-nowrap ">
                             {project?.Role}
@@ -130,7 +130,7 @@ const WorkDetails = () => {
                         style={{ background: project?.buttonColor }}
 
                         className=" w-8/12 h-1 relative left-1 max-[500px]:w-full ">
-                        <h2 style={{color: project?.titleColor}} className="font-bold font-Poppins text-sm mb-2 mt-2">Year</h2>
+                        <h2 style={{ color: project?.titleColor }} className="font-bold font-Poppins text-sm mb-2 mt-2">Year</h2>
                         <h5 style={{ color: project?.color }}
                             className=" top-5 p-1 text-md whitespace-nowrap">
                             {project?.year}
@@ -141,7 +141,7 @@ const WorkDetails = () => {
                         style={{ background: project?.buttonColor }}
                         className=" w-8/12 lg:w-full h-1  mb-14 relative left-1 max-[500px]:w-full">
                         <motion.h2
-                        style={{color: project?.titleColor}}
+                            style={{ color: project?.titleColor }}
                             variants={subContent}
                             initial="init"
                             whileInView="whileOnView"
