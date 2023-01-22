@@ -14,7 +14,7 @@ export default function Home() {
   const router = useRouter()
   return (
     <motion.div>
-      <div className={styles.container +"    dark:bg-[#DCE0E6]"}>
+      <div className={styles.container +"   "}>
         <Head>
           <title>Etiosa Obasuyi | Front - End Developer & UI/UX designer </title>
           <meta name="description" content="A DEVELOPER WITH AN EYE FOR PRODUCT AND USER EXPERIENCE. 
